@@ -1,0 +1,11 @@
+<configuration>
+  <interfaces replace="replace">
+    <interface>
+      <name>FastEthernet1</name>
+      <unit>
+        <name>0</name>
+        <description>This is Fa1.1</description>
+      </unit>
+    </interface>
+  </interfaces>
+</configuration>

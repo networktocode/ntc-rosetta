@@ -1,0 +1,10 @@
+<configuration>
+  <interfaces>
+    <interface>
+      <name>FastEthernet1</name>
+      <unit delete="delete">
+        <name>1</name>
+      </unit>
+    </interface>
+  </interfaces>
+</configuration>

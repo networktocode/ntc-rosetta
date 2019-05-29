@@ -1,0 +1,68 @@
+{
+  "openconfig-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "xe-0/0/0",
+        "config": {
+          "name": "xe-0/0/0",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": false
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0,
+                "description": "this is interface xe-0/0/0"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "xe-0/0/1",
+        "config": {
+          "name": "xe-0/0/1",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0
+              }
+            },
+            {
+              "index": 10,
+              "config": {
+                "index": 10,
+                "description": "this is interface xe-0/0/1.10"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "xe-0/0/3",
+        "config": {
+          "name": "xe-0/0/3",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

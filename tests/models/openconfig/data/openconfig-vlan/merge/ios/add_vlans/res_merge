@@ -1,0 +1,10 @@
+vlan 10
+   name prod
+   no shutdown
+   exit
+!
+vlan 20
+   name dev
+   shutdown
+   exit
+!

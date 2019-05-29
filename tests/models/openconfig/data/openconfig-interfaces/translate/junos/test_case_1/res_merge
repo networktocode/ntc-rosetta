@@ -1,0 +1,30 @@
+<configuration>
+  <interfaces>
+    <interface>
+      <name>xe-0/0/0</name>
+      <disable/>
+      <unit>
+        <name>0</name>
+        <description>this is interface xe-0/0/0</description>
+      </unit>
+    </interface>
+    <interface>
+      <name>xe-0/0/1</name>
+      <disable delete="delete"/>
+      <unit>
+        <name>0</name>
+      </unit>
+      <unit>
+        <name>10</name>
+        <description>this is interface xe-0/0/1.10</description>
+      </unit>
+    </interface>
+    <interface>
+      <name>xe-0/0/3</name>
+      <disable delete="delete"/>
+      <unit>
+        <name>0</name>
+      </unit>
+    </interface>
+  </interfaces>
+</configuration>

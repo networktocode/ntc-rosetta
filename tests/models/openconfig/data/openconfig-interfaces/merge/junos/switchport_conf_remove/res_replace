@@ -1,0 +1,7 @@
+<configuration>
+  <interfaces replace="replace">
+    <interface>
+      <name>FastEthernet1</name>
+    </interface>
+  </interfaces>
+</configuration>

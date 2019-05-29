@@ -1,0 +1,393 @@
+{
+  "ietf-yang-library:modules-state": {
+    "module-set-id": "9d641afa-b060-43a0-932f-fc015ae2d329",
+    "module": [
+      {
+        "name": "ietf-interfaces",
+        "revision": "2014-05-08",
+        "conformance-type": "import"
+      },
+      {
+        "name": "ietf-yang-types",
+        "revision": "2013-07-15",
+        "conformance-type": "import"
+      },
+      {
+        "name": "iana-if-type",
+        "revision": "2017-01-19",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "ietf-inet-types",
+        "revision": "2013-07-15",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-extensions",
+        "revision": "2018-10-17",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-if-ip-ext",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-if-ip",
+        "revision": "2019-01-08",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-if-types",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-if-aggregate",
+        "revision": "2019-04-16",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-if-ethernet",
+        "revision": "2019-04-16",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-if-tunnel",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-interfaces",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-if-poe",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-if-ethernet-ext",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-network-instance-types",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-network-instance",
+        "revision": "2019-04-16",
+        "conformance-type": "implement",
+        "submodule": [
+          {
+            "name": "openconfig-network-instance-l2",
+            "revision": "2019-04-16"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-network-instance-l3",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-mpls",
+        "revision": "2018-11-21",
+        "conformance-type": "import",
+        "submodule": [
+          {
+            "name": "openconfig-mpls-te",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-mpls-static",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-mpls-igp",
+            "revision": "2018-11-21"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-mpls-types",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-mpls-rsvp",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-mpls-ldp",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-mpls-sr",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-segment-routing",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-rib-bgp-types",
+        "revision": "2019-02-27",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-rib-bgp",
+        "revision": "2019-04-16",
+        "conformance-type": "import",
+        "submodule": [
+          {
+            "name": "openconfig-rib-bgp-tables",
+            "revision": "2019-04-16"
+          },
+          {
+            "name": "openconfig-rib-bgp-table-attributes",
+            "revision": "2019-04-16"
+          },
+          {
+            "name": "openconfig-rib-bgp-attributes",
+            "revision": "2019-04-16"
+          },
+          {
+            "name": "openconfig-rib-bgp-shared-attributes",
+            "revision": "2019-04-16"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-bgp",
+        "revision": "2019-04-16",
+        "conformance-type": "import",
+        "submodule": [
+          {
+            "name": "openconfig-bgp-common",
+            "revision": "2019-04-16"
+          },
+          {
+            "name": "openconfig-bgp-common-structure",
+            "revision": "2019-04-16"
+          },
+          {
+            "name": "openconfig-bgp-common-multiprotocol",
+            "revision": "2019-04-16"
+          },
+          {
+            "name": "openconfig-bgp-global",
+            "revision": "2019-04-16"
+          },
+          {
+            "name": "openconfig-bgp-neighbor",
+            "revision": "2019-04-16"
+          },
+          {
+            "name": "openconfig-bgp-peer-group",
+            "revision": "2019-04-16"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-bgp-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-routing-policy",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-policy-forwarding",
+        "revision": "2018-11-21",
+        "conformance-type": "import",
+        "submodule": [
+          {
+            "name": "openconfig-pf-forwarding-policies",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-pf-path-groups",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-pf-interfaces",
+            "revision": "2018-11-21"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-packet-match",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-packet-match-types",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-policy-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-types",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-inet-types",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-yang-types",
+        "revision": "2018-11-21",
+        "conformance-type": "import"
+      },
+      {
+        "name": "openconfig-vlan",
+        "revision": "2019-04-16",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-vlan-types",
+        "revision": "2019-01-31",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-aft",
+        "revision": "2018-11-21",
+        "conformance-type": "implement",
+        "submodule": [
+          {
+            "name": "openconfig-aft-ipv4",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-aft-ipv6",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-aft-mpls",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-aft-pf",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-aft-ethernet",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-aft-common",
+            "revision": "2018-11-21"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-aft-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-local-routing",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-ospfv2",
+        "revision": "2018-11-21",
+        "conformance-type": "implement",
+        "submodule": [
+          {
+            "name": "openconfig-ospfv2-global",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-ospfv2-area",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-ospfv2-area-interface",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-ospfv2-lsdb",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-ospfv2-common",
+            "revision": "2018-11-21"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-ospf-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-isis",
+        "revision": "2018-11-21",
+        "conformance-type": "implement",
+        "submodule": [
+          {
+            "name": "openconfig-isis-lsp",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-isis-routing",
+            "revision": "2018-11-21"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-isis-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-isis-lsdb-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-pim",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-pim-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-igmp",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-igmp-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-acl",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      }
+    ]
+  }
+}
