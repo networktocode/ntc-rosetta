@@ -79,3 +79,8 @@ tests: build_test_containers black sphinx-test pylama mypy nbval lint
 lint:
 	${DOCKER} \
 		poetry run ntc_rosetta lint -i W001 ntc_rosetta/parsers ntc_rosetta/translators
+
+.PHONY: publish
+publish:
+	@${DOCKER} \
+		poetry publish --build --username=$PYPI_USER --password=$PYPI_PASSWORD

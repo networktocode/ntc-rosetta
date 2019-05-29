@@ -2,3 +2,8 @@ language: minimal
 dist: xenial
 script:
 - make tests
+deploy:
+  provider: script
+  script: make publish
+  on:
+    tags: true
