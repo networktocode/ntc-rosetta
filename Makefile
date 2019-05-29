@@ -82,5 +82,5 @@ lint:
 
 .PHONY: publish
 publish:
-	@${DOCKER} \
-		poetry publish --build --username=$PYPI_USER --password=$PYPI_PASSWORD
+	${DOCKER} \
+		poetry publish --build --username=$(PYPI_USER) --password="$(PYPI_PASSWORD)"
