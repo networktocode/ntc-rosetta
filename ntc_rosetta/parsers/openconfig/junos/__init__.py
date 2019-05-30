@@ -18,13 +18,12 @@ class JunosParser(parser.RootParser):
 
     class Yangify(parser.ParserData):
         def init(self) -> None:
-            if self.root_native["dev_conf"].tag != "configuration":
-                self.root_native["dev_conf"] = self.root_native["dev_conf"].find('configuration')
-                if not self.root_native["dev_conf"]: 
+            parsed_xml = etree.fromstring(self.root_native["dev_conf"])
+            if parsed_xml.tag != "configuration":
+                parsed_xml = parsed_xml.find('configuration')
+                if not parsed_xml: 
                     raise AttributeError("Unable to locate 'configuration' tag in XML blob")                        
-            self.root_native["dev_conf"] = etree.fromstring(
-                self.root_native["dev_conf"]
-            )
+            self.root_native["dev_conf"] = parsed_xml
             self.native["dev_conf"] = self.root_native["dev_conf"]
 
     interfaces = Interfaces
