@@ -1,4 +1,4 @@
-from copy import copy
+from copy import deepcopy
 from lxml import etree
 
 from ntc_rosetta.parsers.openconfig.junos.openconfig_interfaces.interfaces import (
@@ -26,7 +26,7 @@ class JunosParser(parser.RootParser):
                     raise AttributeError("Unable to locate 'configuration' tag in XML blob")
                 # We need to copy the XML element here, otherwise it will retain its parent 
                 # references, meaning we can inadvertantly walk up the tree when we shouldn't.
-                parsed_xml = copy(parsed_xml)
+                parsed_xml = deepcopy(parsed_xml)
             self.root_native["dev_conf"] = parsed_xml
             self.native["dev_conf"] = self.root_native["dev_conf"]
 
