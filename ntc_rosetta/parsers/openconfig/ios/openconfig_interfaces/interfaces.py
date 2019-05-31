@@ -13,6 +13,13 @@ class SubinterfaceConfig(Parser):
     def description(self) -> Optional[str]:
         return cast(Optional[str], jh.query('description."#text"', self.yy.native))
 
+    def enabled(self) -> bool:
+        shutdown = jh.query('shutdown."#standalone"', self.yy.native)
+        if shutdown:
+            return False
+        else:
+            return True
+
     def index(self) -> int:
         return int(self.yy.key.split(".")[-1])
 
@@ -54,12 +61,28 @@ class InterfaceConfig(Parser):
         else:
             return True
 
+    def loopback_mode(self) -> bool:
+        loopback_mode = jh.query("loopback", self.yy.native)
+        if loopback_mode:
+            return True
+        else:
+            return False
+
     def name(self) -> str:
         return str(self.yy.key)
+
+    def mtu(self) -> Optional[int]:
+        return cast(Optional[int], jh.query('mtu."#text"', self.yy.native))
 
     def type(self) -> Optional[str]:
         if "Ethernet" in self.yy.key:
             return "iana-if-type:ethernetCsmacd"
+        elif "Loopback" in self.yy.key:
+            return "iana-if-type:softwareLoopback"
+        elif "Tunnel" in self.yy.key:
+            return "iana-if-type:tunnel"
+        elif "Port-channel" in self.yy.key:
+            return "iana-if-type:ieee8023adLag"
         return None
 
 

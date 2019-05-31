@@ -6,9 +6,8 @@
         "config": {
           "type": "iana-if-type:ethernetCsmacd",
           "name": "FastEthernet1",
-	  "mtu": 9126,
-	  "loopback-mode": false,
           "description": "This is Fa1",
+          "mtu": 9000,
           "enabled": false
         },
         "subinterfaces": {
@@ -17,16 +16,14 @@
               "index": 1,
               "config": {
                 "index": 1,
-                "description": "This is Fa1.1",
-		"enabled": true
+                "description": "This is Fa1.1"
               }
             },
             {
               "index": 2,
               "config": {
                 "index": 2,
-                "description": "This is Fa1.2",
-		"enabled": false
+                "description": "This is Fa1.2"
               }
             }
           ]
@@ -37,8 +34,8 @@
         "config": {
           "type": "iana-if-type:ethernetCsmacd",
           "name": "FastEthernet3",
-	  "loopback-mode": false,
           "description": "This is Fa3",
+          "mtu": 9216,
           "enabled": true
         }
       },
@@ -47,7 +44,6 @@
         "config": {
           "type": "iana-if-type:ethernetCsmacd",
           "name": "FastEthernet4",
-	  "loopback-mode": false,
           "enabled": false
         }
       }

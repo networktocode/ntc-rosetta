@@ -18,6 +18,12 @@ class SubinterfaceConfig(Translator):
         else:
             self.yy.result.add_command(f"   no description")
 
+    def enabled(self, value: Optional[bool]) -> None:
+        if value:
+            self.yy.result.add_command(f"   no shutdown")
+        else:
+            self.yy.result.add_command(f"   shutdown")
+
 
 class Subinterface(Translator):
     class Yangify(TranslatorData):
@@ -75,6 +81,12 @@ class InterfaceConfig(Translator):
             self.yy.result.add_command(f"   no shutdown")
         else:
             self.yy.result.add_command(f"   shutdown")
+
+    def mtu(self, value: Optional[int]) -> None:
+        if value:
+            self.yy.result.add_command(f"   mtu {value}")
+        else:
+            self.yy.result.add_command(f"   no mtu")
 
 
 class Interface(Translator):
