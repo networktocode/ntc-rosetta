@@ -62,6 +62,56 @@
             }
           ]
         }
+      },
+      {
+        "name": "et-0/0/48",
+        "config": {
+          "name": "et-0/0/48",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        }
+      },
+      {
+        "name": "irb",
+        "config": {
+          "name": "irb",
+          "type": "iana-if-type:softwareLoopback",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0
+              }
+            },
+            {
+              "index": 301,
+              "config": {
+                "index": 301
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "ae16",
+        "config": {
+          "name": "ae16",
+          "type": "iana-if-type:softwareLoopback",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0
+              }
+            }
+          ]
+        }
       }
     ]
   }
