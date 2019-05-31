@@ -52,9 +52,9 @@ class InterfaceConfig(Parser):
         return cast(str, self.yy.key)
 
     def type(self) -> Optional[str]:
-        if any([self.yy.key.startswith(prefix) for prefix in ["ge", "xe"]]):
+        if any([self.yy.key.startswith(prefix) for prefix in ["ge", "xe", "et"]]):
             return "iana-if-type:ethernetCsmacd"
-        elif self.yy.key.startswith("lo"):
+        elif any([self.yy.key.startswith(prefix) for prefix in ["lo", "ae", "irb"]]):
             return "iana-if-type:softwareLoopback"
         else:
             raise Exception(f"don't know the type for {self.yy.key}")
