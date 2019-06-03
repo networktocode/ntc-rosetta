@@ -1,0 +1,117 @@
+{
+  "openconfig-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "xe-0/0/0",
+        "config": {
+          "name": "xe-0/0/0",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0,
+                "description": "this is interface xe-0/0/0"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "xe-0/0/1",
+        "config": {
+          "name": "xe-0/0/1",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0
+              }
+            }
+          ]
+        },
+        "openconfig-if-ethernet:ethernet": {
+          "openconfig-vlan:switched-vlan": {
+            "config": {
+              "interface-mode": "ACCESS",
+              "access-vlan": 10
+            }
+          }
+        }
+      },
+      {
+        "name": "xe-0/0/3",
+        "config": {
+          "name": "xe-0/0/3",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0
+              }
+            }
+          ]
+        },
+        "openconfig-if-ethernet:ethernet": {
+          "openconfig-vlan:switched-vlan": {
+            "config": {
+              "interface-mode": "TRUNK",
+              "trunk-vlans": [
+                10,
+                20
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "openconfig-network-instance:network-instances": {
+    "network-instance": [
+      {
+        "name": "default",
+        "config": {
+          "name": "default"
+        },
+        "vlans": {
+          "vlan": [
+            {
+              "vlan-id": 1,
+              "config": {
+                "vlan-id": 1,
+                "name": "default",
+                "status": "ACTIVE"
+              }
+            },
+            {
+              "vlan-id": 20,
+              "config": {
+                "vlan-id": 20,
+                "name": "prod",
+                "status": "ACTIVE"
+              }
+            },
+            {
+              "vlan-id": 10,
+              "config": {
+                "vlan-id": 10,
+                "status": "SUSPENDED"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

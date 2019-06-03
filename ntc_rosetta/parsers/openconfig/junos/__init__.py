@@ -21,10 +21,12 @@ class JunosParser(parser.RootParser):
         def init(self) -> None:
             parsed_xml = etree.fromstring(self.root_native["dev_conf"])
             if parsed_xml.tag != "configuration":
-                parsed_xml = parsed_xml.find('configuration')
-                if parsed_xml is None: 
-                    raise AttributeError("Unable to locate 'configuration' tag in XML blob")
-                # We need to copy the XML element here, otherwise it will retain its parent 
+                parsed_xml = parsed_xml.find("configuration")
+                if parsed_xml is None:
+                    raise AttributeError(
+                        "Unable to locate 'configuration' tag in XML blob"
+                    )
+                # We need to copy the XML element here, otherwise it will retain its parent
                 # references, meaning we can inadvertantly walk up the tree when we shouldn't.
                 parsed_xml = deepcopy(parsed_xml)
             self.root_native["dev_conf"] = parsed_xml
