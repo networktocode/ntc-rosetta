@@ -78,7 +78,9 @@ tests: build_test_containers black sphinx-test pylama mypy nbval lint
 .PHONY: lint
 lint:
 	${DOCKER} \
-		poetry run ntc_rosetta lint -i W001 ntc_rosetta/parsers ntc_rosetta/translators
+		poetry run ntc_rosetta lint -i W001 -m openconfig ntc_rosetta/parsers/openconfig ntc_rosetta/translators/openconfig
+	${DOCKER} \
+		poetry run ntc_rosetta lint -i W001 -m ntc ntc_rosetta/parsers/ntc ntc_rosetta/translators/ntc
 
 .PHONY: publish
 publish:

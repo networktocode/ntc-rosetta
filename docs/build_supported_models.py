@@ -18,7 +18,7 @@ from yangson.schemanode import (
     SchemaTreeNode,
 )
 
-models = ("openconfig",)
+models = ("openconfig", "ntc")
 drivers = ("ios", "junos")
 
 LintClass = Union[
