@@ -57,9 +57,40 @@ class Test:
     def test_parser(
         self, model: str, driver: str, test_case_path: pathlib.Path
     ) -> None:
-        with open(test_case_path.joinpath("dev_conf"), "r") as f:
+        device_config_files = []
+        result_files = []
+        for file_path in test_case_path.iterdir():
+            if file_path.is_file():
+                if file_path.name.startswith("dev_conf"):
+                    device_config_files.append(file_path)
+                elif file_path.name.startswith("result"):
+                    result_files.append(file_path)
+        # Assuming there is only a single testcase for this parser.
+        if len(device_config_files) == 1:
+            self._run_parser_test(
+                model, driver, device_config_files[0], result_files[0]
+            )
+        else:
+            for device_config, result in zip(
+                sorted(device_config_files), sorted(result_files)
+            ):
+                if "passes" in device_config.name:
+                    self._run_parser_test(model, driver, device_config, result)
+                elif "fails" in device_config.name:
+                    with pytest.raises(AssertionError):
+                        self._run_parser_test(model, driver, device_config, result)
+                elif "_raises_" in device_config.name:
+                    exception_name = device_config.name.split("_raises_")[-1]
+                    with pytest.raises(eval(exception_name)):
+                        self._run_parser_test(model, driver, device_config, result)
+
+    @staticmethod
+    def _run_parser_test(
+        model: str, driver: str, device_config: pathlib.Path, result: pathlib.Path
+    ) -> None:
+        with open(device_config, "r") as f:
             dev_conf = f.read()
-        with open(test_case_path.joinpath("result.json"), "r") as f:
+        with open(result, "r") as f:
             structured = json.load(f)
 
         driver_class = ntc_rosetta.get_driver(driver)
@@ -71,7 +102,7 @@ class Test:
             include=filters[model]["include"],
             exclude=filters[model]["exclude"],
         )
-        #  print(json.dumps(parsed_obj.raw_value()))
+        # print(json.dumps(parsed_obj.raw_value()))
         assert parsed_obj.raw_value() == structured, json.dumps(parsed_obj.raw_value())
 
     def _test_translate(
