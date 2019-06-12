@@ -102,7 +102,7 @@ class Test:
             include=filters[model]["include"],
             exclude=filters[model]["exclude"],
         )
-        print(json.dumps(parsed_obj.raw_value()))
+        # print(json.dumps(parsed_obj.raw_value()))
         assert parsed_obj.raw_value() == structured, json.dumps(parsed_obj.raw_value())
 
     def _test_translate(
