@@ -3,4 +3,4 @@
 	url = https://github.com/openconfig/public.git
 [submodule "ntc_rosetta/yang/ntc-yang-models"]
 	path = ntc_rosetta/yang/ntc-yang-models
-	url = git@github.com:networktocode/ntc-yang-models.git
+	url = https://github.com/networktocode/ntc-yang-models.git
