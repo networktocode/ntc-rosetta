@@ -75,7 +75,7 @@
         "name": "irb",
         "config": {
           "name": "irb",
-          "type": "iana-if-type:softwareLoopback",
+          "type": "iana-if-type:l3ipvlan",
           "enabled": true
         },
         "subinterfaces": {
@@ -99,7 +99,7 @@
         "name": "ae16",
         "config": {
           "name": "ae16",
-          "type": "iana-if-type:softwareLoopback",
+          "type": "iana-if-type:ieee8023adLag",
           "enabled": true
         },
         "subinterfaces": {
