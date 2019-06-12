@@ -29,7 +29,7 @@ class SwitchedVlanConfig(Parser):
                 "unit[name=0]/family/ethernet-switching/vlan/members"
             )
             vlan_ids = resolve_vlan_ids(vlans, self.yy.root_native)
-            if vlans:
+            if vlan_ids:
                 return vlan_ids[0]
         return None
 
@@ -39,7 +39,7 @@ class SwitchedVlanConfig(Parser):
                 "unit[name=0]/family/ethernet-switching/vlan/members"
             )
             vlan_ids = resolve_vlan_ids(vlans, self.yy.root_native)
-            if vlans:
+            if vlan_ids:
                 return vlan_ids
         return None
 

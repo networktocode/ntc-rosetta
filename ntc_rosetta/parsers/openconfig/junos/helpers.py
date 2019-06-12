@@ -9,6 +9,6 @@ def resolve_vlan_ids(vlans: List, root) -> List[int]:
         elem = root["dev_conf"].xpath(
             "//vlan[name/text()='{member}']/vlan-id".format(member=vlan.text)
         )
-        if elem is not None:
+        if elem is not None and len(elem):
             rv.append(int(elem[0].text))
     return rv
