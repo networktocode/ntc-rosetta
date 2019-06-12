@@ -19,10 +19,12 @@ def _get_openconfig_data_model() -> DataModel:
         base.joinpath("openconfig/release/models/network-instance"),
         base.joinpath("openconfig/release/models/local-routing"),
         base.joinpath("openconfig/release/models/ospf"),
+        base.joinpath("openconfig/release/models/platform"),
         base.joinpath("openconfig/release/models/policy"),
         base.joinpath("openconfig/release/models/policy-forwarding"),
         base.joinpath("openconfig/release/models/rib"),
         base.joinpath("openconfig/release/models/segment-routing"),
+        base.joinpath("openconfig/release/models/system"),
         base.joinpath("openconfig/release/models/types"),
         base.joinpath("openconfig/release/models/vlan"),
     ]

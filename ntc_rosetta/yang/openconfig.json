@@ -387,6 +387,76 @@
         "name": "openconfig-acl",
         "revision": "2018-11-21",
         "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-system",
+        "revision": "2019-01-29",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-aaa",
+        "revision": "2018-11-21",
+        "conformance-type": "implement",
+        "submodule": [
+          {
+            "name": "openconfig-aaa-radius",
+            "revision": "2018-11-21"
+          },
+          {
+            "name": "openconfig-aaa-tacacs",
+            "revision": "2018-11-21"
+          }
+        ]
+      },
+      {
+        "name": "openconfig-aaa-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-system-logging",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-system-management",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-system-terminal",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-procmon",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-alarms",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-alarm-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-messages",
+        "revision": "2018-08-13",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-platform",
+        "revision": "2019-04-16",
+        "conformance-type": "implement"
+      },
+      {
+        "name": "openconfig-platform-types",
+        "revision": "2018-11-21",
+        "conformance-type": "implement"
       }
     ]
   }
