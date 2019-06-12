@@ -5,7 +5,7 @@ from yangify.translator import Translator, TranslatorData, unneeded
 
 class VlanConfigVlans(Translator):
     class Yangify(TranslatorData):
-        path = "ntc-vlan:vlan/config/vlans"
+        path = "/ntc-vlan:vlan/config/vlans"
 
         def pre_process_list(self) -> None:
             if self.to_remove:
@@ -40,13 +40,13 @@ class VlanConfigVlans(Translator):
 
 class VlanConfig(Translator):
     class Yangify(TranslatorData):
-        path = "ntc-vlan:vlan/config"
+        path = "/ntc-vlan:vlan/config"
 
     vlans = VlanConfigVlans
 
 
 class Vlan(Translator):
     class Yangify(TranslatorData):
-        path = "ntc-vlan:vlan"
+        path = "/ntc-vlan:vlan"
 
     config = VlanConfig

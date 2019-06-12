@@ -7,7 +7,7 @@ from yangify.parser import Parser, ParserData
 
 class VlanConfigVlans(Parser):
     class Yangify(ParserData):
-        path = "ntc-vlan:vlan/config/vlans"
+        path = "/ntc-vlan:vlan/config/vlans"
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
             for k, v in jh.query("vlan", self.native, default={}).items():
@@ -31,14 +31,14 @@ class VlanConfigVlans(Parser):
 
 class VlanConfig(Parser):
     class Yangify(ParserData):
-        path = "ntc-vlan:vlan/config"
+        path = "/ntc-vlan:vlan/config"
 
     vlans = VlanConfigVlans
 
 
 class Vlan(Parser):
     class Yangify(ParserData):
-        path = "ntc-vlan:vlan"
+        path = "/ntc-vlan:vlan"
         metadata = {"key": "dev_conf", "command": "show running-config all"}
 
         def pre_process(self) -> None:

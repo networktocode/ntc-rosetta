@@ -10,6 +10,106 @@ ntc parser
         <th>junos</th>
       </tr>
       <tr>
+        <td>/ntc-vrf:vrf</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-vrf:vrf/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-vrf:vrf/config/vrfs</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-vrf:vrf/config/vrfs/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-vrf:vrf/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-vrf:vrf/state/vrfs</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-vrf:vrf/state/vrfs/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/config/timeout</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/config/entries</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/config/entries/ip-address</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/config/entries/hw-address</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/config/entries/vrf</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/state/timeout</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/state/entries</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/state/entries/ip-address</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/state/entries/hw-address</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/ntc-arp:arp/state/entries/vrf</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
         <td>/ntc-system:system</td>
         <td>❌    </td>
         <td>❌    </td>
@@ -136,32 +236,32 @@ ntc parser
       </tr>
       <tr>
         <td>/ntc-vlan:vlan</td>
-        <td>❌    </td>
+        <td>&#x2705 <div style="font-family:'Lucida Console', monospace; font-size: 12px; line-height: 1">{'key': 'dev_conf', 'command': 'show running-config all'}</div>    </td>
         <td>❌    </td>
       </tr>
       <tr>
         <td>/ntc-vlan:vlan/config</td>
-        <td>❌    </td>
+        <td>&#x2705    </td>
         <td>❌    </td>
       </tr>
       <tr>
         <td>/ntc-vlan:vlan/config/vlans</td>
-        <td>❌    </td>
+        <td>&#x2705    </td>
         <td>❌    </td>
       </tr>
       <tr>
         <td>/ntc-vlan:vlan/config/vlans/vlan-id</td>
-        <td>❌    </td>
+        <td>&#x2705    </td>
         <td>❌    </td>
       </tr>
       <tr>
         <td>/ntc-vlan:vlan/config/vlans/name</td>
-        <td>❌    </td>
+        <td>&#x2705    </td>
         <td>❌    </td>
       </tr>
       <tr>
         <td>/ntc-vlan:vlan/config/vlans/active</td>
-        <td>❌    </td>
+        <td>&#x2705    </td>
         <td>❌    </td>
       </tr>
       <tr>
@@ -186,106 +286,6 @@ ntc parser
       </tr>
       <tr>
         <td>/ntc-vlan:vlan/state/vlans/active</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-vrf:vrf</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-vrf:vrf/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-vrf:vrf/config/vrfs</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-vrf:vrf/config/vrfs/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-vrf:vrf/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-vrf:vrf/state/vrfs</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-vrf:vrf/state/vrfs/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/config/timeout</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/config/entries</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/config/entries/ip-address</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/config/entries/hw-address</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/config/entries/vrf</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/state/timeout</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/state/entries</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/state/entries/ip-address</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/state/entries/hw-address</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/ntc-arp:arp/state/entries/vrf</td>
         <td>❌    </td>
         <td>❌    </td>
       </tr>
