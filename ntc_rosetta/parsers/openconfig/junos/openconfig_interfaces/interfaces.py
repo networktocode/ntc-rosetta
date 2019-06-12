@@ -52,7 +52,9 @@ class InterfaceConfig(Parser):
         return cast(str, self.yy.key)
 
     def type(self) -> Optional[str]:
-        if any([self.yy.key.startswith(prefix) for prefix in ["ge", "xe", "et", "fxp"]]):
+        if any(
+            [self.yy.key.startswith(prefix) for prefix in ["ge", "xe", "et", "fxp"]]
+        ):
             return "iana-if-type:ethernetCsmacd"
         elif self.yy.key.startswith("lo"):
             return "iana-if-type:softwareLoopback"
