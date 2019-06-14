@@ -20,5 +20,6 @@ interface FastEthernet3
 !
 interface FastEthernet4
    shutdown
+   loopback mac
    exit
 !

@@ -47,7 +47,7 @@
         "config": {
           "type": "iana-if-type:ethernetCsmacd",
           "name": "FastEthernet4",
-	  "loopback-mode": false,
+	  "loopback-mode": true,
           "enabled": false
         }
       }

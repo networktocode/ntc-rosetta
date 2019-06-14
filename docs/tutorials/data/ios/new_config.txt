@@ -22,6 +22,7 @@ interface FastEthernet4
    shutdown
    switchport mode trunk
    switchport trunk allowed vlan 10,20
+   loopback mac
    exit
 !
 vlan 10
