@@ -74,6 +74,61 @@
             }
           }
         }
+      },
+      {
+        "name": "xe-0/0/4",
+        "config": {
+          "name": "xe-0/0/4",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0
+              }
+            }
+          ]
+        },
+        "openconfig-if-ethernet:ethernet": {
+          "openconfig-vlan:switched-vlan": {
+            "config": {
+              "interface-mode": "TRUNK",
+              "trunk-vlans": [
+                100,
+                200
+              ]
+            }
+          }
+        }
+      },
+      {
+        "name": "xe-0/0/5",
+        "config": {
+          "name": "xe-0/0/5",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0
+              }
+            }
+          ]
+        },
+        "openconfig-if-ethernet:ethernet": {
+          "openconfig-vlan:switched-vlan": {
+            "config": {
+              "interface-mode": "ACCESS",
+              "access-vlan": 100
+            }
+          }
+        }
       }
     ]
   },
@@ -107,6 +162,22 @@
               "config": {
                 "vlan-id": 10,
                 "status": "SUSPENDED"
+              }
+            },
+            {
+              "vlan-id": 100,
+              "config": {
+                "vlan-id": 100,
+                "name": "VLAN-100",
+                "status": "ACTIVE"
+              }
+            },
+            {
+              "vlan-id": 200,
+              "config": {
+                "vlan-id": 200,
+                "name": "VLAN-200",
+                "status": "ACTIVE"
               }
             }
           ]

@@ -1,6 +1,7 @@
 from typing import List, Optional, cast
 
 from yangify.parser import Parser, ParserData
+from ntc_rosetta.parsers.openconfig.junos.helpers import resolve_vlan_ids
 
 
 class SwitchedVlanConfig(Parser):
@@ -24,11 +25,12 @@ class SwitchedVlanConfig(Parser):
 
     def access_vlan(self) -> Optional[int]:
         if self.yy._interface_mode() == "ACCESS":
-            vlan = self.yy.native.xpath(
+            vlans = self.yy.native.xpath(
                 "unit[name=0]/family/ethernet-switching/vlan/members"
             )
-            if vlan:
-                return int(vlan[0].text)
+            vlan_ids = resolve_vlan_ids(vlans, self.yy.root_native)
+            if vlan_ids:
+                return vlan_ids[0]
         return None
 
     def trunk_vlans(self) -> Optional[List[str]]:
@@ -36,8 +38,9 @@ class SwitchedVlanConfig(Parser):
             vlans = self.yy.native.xpath(
                 "unit[name=0]/family/ethernet-switching/vlan/members"
             )
-            if vlans:
-                return [v.text for v in vlans]
+            vlan_ids = resolve_vlan_ids(vlans, self.yy.root_native)
+            if vlan_ids:
+                return vlan_ids
         return None
 
 
