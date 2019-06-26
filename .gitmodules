@@ -1,3 +1,3 @@
 [submodule "ntc_rosetta/yang/openconfig"]
 	path = ntc_rosetta/yang/openconfig
-	url = https://github.com/openconfig/public.git
+	url = https://github.com/networktocode/openconfig.git
