@@ -1730,6 +1730,451 @@ openconfig parser
         <td>❌    </td>
       </tr>
       <tr>
+        <td>/openconfig-routing-policy:routing-policy</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/config/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/config/mode</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/state/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/state/mode</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/ip-prefix</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/masklength-range</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/config/ip-prefix</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/config/masklength-range</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/state/ip-prefix</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/state/masklength-range</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/config/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/state/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/config/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/state/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/config/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/state/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/config/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/state/name</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/config/call-policy</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/config/install-protocol-eq</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/state/call-policy</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/state/install-protocol-eq</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/config/interface</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/config/subinterface</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/state/interface</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/state/subinterface</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/config/prefix-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/config/match-set-options</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/state/prefix-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/state/match-set-options</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/config/neighbor-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/config/match-set-options</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/state/neighbor-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/state/match-set-options</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/config/tag-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/config/match-set-options</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/state/tag-set</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/state/match-set-options</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/config</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/config/policy-result</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/state</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
+        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/state/policy-result</td>
+        <td>❌    </td>
+        <td>❌    </td>
+      </tr>
+      <tr>
         <td>/openconfig-acl:acl</td>
         <td>❌    </td>
         <td>❌    </td>
@@ -2401,451 +2846,6 @@ openconfig parser
       </tr>
       <tr>
         <td>/openconfig-local-routing:local-routes/local-aggregates/aggregate/state/set-tag</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/config/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/config/mode</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/state/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/state/mode</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/ip-prefix</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/masklength-range</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/config/ip-prefix</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/config/masklength-range</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/state/ip-prefix</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/state/masklength-range</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/config/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/state/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/config/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/state/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/config/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/state/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/config/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/state/name</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/config/call-policy</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/config/install-protocol-eq</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/state/call-policy</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/state/install-protocol-eq</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/config/interface</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/config/subinterface</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/state/interface</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/state/subinterface</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/config/prefix-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/config/match-set-options</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/state/prefix-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/state/match-set-options</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/config/neighbor-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/config/match-set-options</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/state/neighbor-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/state/match-set-options</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/config/tag-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/config/match-set-options</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/state/tag-set</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/state/match-set-options</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/config</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/config/policy-result</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/state</td>
-        <td>❌    </td>
-        <td>❌    </td>
-      </tr>
-      <tr>
-        <td>/openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/state/policy-result</td>
         <td>❌    </td>
         <td>❌    </td>
       </tr>

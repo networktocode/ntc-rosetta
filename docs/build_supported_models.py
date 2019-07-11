@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Type, Union
@@ -18,7 +19,7 @@ from yangson.schemanode import (
     SchemaTreeNode,
 )
 
-models = ("openconfig",)
+models = ("openconfig", "ntc")
 drivers = ("ios", "junos")
 
 LintClass = Union[
@@ -119,7 +120,10 @@ def _process_schema_child(
             for platform, linted_platform in linted.items():
                 r = SchemaResult(implemented=False, metadata={})
                 if parent in linted_platform:
-                    if child.name in linted_platform[parent].implements:
+                    if (
+                        child.name.replace("-", "_")
+                        in linted_platform[parent].implements
+                    ):
                         r = SchemaResult(implemented=True, metadata={})
                 results[child.data_path()][platform] = r
         elif isinstance(child, (GroupNode, LeafListNode)):

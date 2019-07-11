@@ -1,0 +1,71 @@
+ module ntc-vrf {
+    yang-version "1";
+
+    namespace "https://networktocode.com/yang/vrf";
+
+    prefix "ntc-vrf";
+
+    organization "Network To Code LLC.";
+
+    contact "www.networktocode.com";
+
+    description
+        "A simplfied model to manage VRFs";
+
+
+    revision "2019-05-02" {
+        description
+            "initial version";
+        reference "0.0.1";
+    }
+
+    grouping vrf-config {
+        description
+            "Reusable block";
+    }
+
+
+    grouping vrf-top {
+        description
+            "Reusable block";
+        container vrf {
+            description
+                "Top container for VRF configuration and state";
+            container config {
+                description
+                    "VRF configuration";
+                list vrfs {
+                    description
+                        "List of VRFs";
+                    key "name";
+                    leaf name {
+                        description
+                            "Name of VRF";
+                        type string;
+                    }
+
+                    uses vrf-config;
+                }
+            }
+            container state {
+                description
+                    "VRF state";
+                list vrfs {
+                    description
+                        "List of VRFs";
+                    key "name";
+                    leaf name {
+                        description
+                            "Name of VRF";
+                        type string;
+                    }
+
+                    uses vrf-config;
+                }
+            }
+        }
+    }
+
+    uses vrf-top;
+
+}
