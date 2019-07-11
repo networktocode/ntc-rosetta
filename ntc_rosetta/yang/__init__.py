@@ -2,6 +2,7 @@ import pathlib
 
 from yangson.datamodel import DataModel
 
+_DATAMODELS = {"openconfig": None, "ntc": None}
 
 BASEPATH = pathlib.Path(__file__).parent
 OPENCONFIG_LIB = f"{BASEPATH}/openconfig.json"
@@ -50,9 +51,13 @@ def get_data_model(model: str = "openconfig") -> DataModel:
     Returns an instantiated data model.
     """
     if model == "openconfig":
-        return _get_openconfig_data_model()
+        if _DATAMODELS["openconfig"] is None:
+            _DATAMODELS["openconfig"] = _get_openconfig_data_model()
+        return _DATAMODELS["openconfig"]
     elif model == "ntc":
-        return _get_ntc_data_model()
+        if _DATAMODELS["ntc"] is None:
+            _DATAMODELS["ntc"] = _get_ntc_data_model()
+        return _DATAMODELS["ntc"]
     else:
         raise ValueError(f"model {model} not recognized")
 

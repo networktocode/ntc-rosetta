@@ -5,16 +5,15 @@ from ntc_rosetta.translators.ntc.junos import JunosTranslator as NTCJunosTransla
 from ntc_rosetta.translators.openconfig.junos import (
     JunosTranslator as OCJunosTranslator,
 )
-from ntc_rosetta.yang import get_data_model
 
 
 class JunosDriverOpenconfig(Driver):
     parser = OCJunosParser
     translator = OCJunosTranslator
-    datamodel = get_data_model("openconfig")
+    datamodel_name = "openconfig"
 
 
 class JunosDriverNTC(Driver):
     parser = NTCJunosParser
     translator = NTCJunosTranslator
-    datamodel = get_data_model("ntc")
+    datamodel_namw = "ntc"
