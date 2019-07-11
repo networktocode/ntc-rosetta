@@ -1,0 +1,90 @@
+ module ntc-vlan {
+    yang-version "1";
+
+    namespace "https://networktocode.com/yang/vlan";
+
+    prefix "ntc-vlan";
+
+    organization "Network To Code LLC.";
+
+    contact "www.networktocode.com";
+
+    description
+        "Model to configure and retrieve operational state of VLANs";
+
+    revision "2019-05-02" {
+        description
+            "initial version";
+        reference "0.0.1";
+    }
+
+    grouping vlan-config {
+        description
+            "Reusable block";
+        leaf vlan-id {
+            description
+                "VLAN identifier";
+            type uint16 {
+              range 1..4094;
+            }
+        }
+
+        leaf name {
+            description
+                "VLAN name";
+            type string;
+        }
+
+        leaf active {
+            description
+                "Whether the VLAN is enabled and bridging traffic or not";
+            type boolean;
+            default true;
+        }
+    }
+
+    grouping vlan-state {
+        description
+            "Reusable block";
+        leaf-list members {
+            description
+                "Interfaces in this VLAN";
+            type string;
+        }
+    }
+
+    grouping vlan-top {
+        description
+            "Reusable block";
+        container vlan {
+            description
+                "Top-level container for VLAN configuration and state";
+            container config {
+                description
+                    "Top-level container for VLAN configuration";
+                list vlans {
+                    description
+                        "List of VLANs";
+                    key "vlan-id";
+
+                    uses vlan-config;
+                }
+            }
+
+            container state {
+                description
+                    "Top-level container for VLAN state";
+                list vlans {
+                    description
+                        "List of VLANs";
+                    key "vlan-id";
+
+                    uses vlan-config;
+                    uses vlan-state;
+                }
+            }
+        }
+    }
+
+    uses vlan-top;
+}

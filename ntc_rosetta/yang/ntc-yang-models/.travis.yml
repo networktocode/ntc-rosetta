@@ -1,0 +1,4 @@
+language: minimal
+dist: xenial
+script:
+- make tests
