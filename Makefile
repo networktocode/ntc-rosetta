@@ -4,6 +4,12 @@ endif
 
 DOCKER=docker run -p 8888:8888 -v ${PWD}:/ntc_rosetta ntc_rosetta-${PYTHON}:latest
 
+YANG_VENDORED_BASE_PATH=ntc_rosetta/yang
+
+OPENCONFIG_REPO=https://github.com/networktocode/openconfig.git
+OPENCONFIG_BRANCH=ntc
+OPENCONFIG_FOLDER=openconfig
+
 .PHONY: build_test_container
 build_test_container:
 	docker build \
@@ -84,3 +90,10 @@ lint:
 publish:
 	${DOCKER} \
 		poetry publish --build --username=$(PYPI_USER) --password="$(PYPI_PASSWORD)"
+
+.PHONY: vendor
+vendor:
+	rm -rf $(YANG_VENDORED_BASE_PATH)/$(OPENCONFIG_FOLDER)
+	git clone $(OPENCONFIG_REPO) $(YANG_VENDORED_BASE_PATH)/$(OPENCONFIG_FOLDER)
+	cd $(YANG_VENDORED_BASE_PATH)/$(OPENCONFIG_FOLDER) && git checkout $(OPENCONFIG_BRANCH)
+	rm -rf $(YANG_VENDORED_BASE_PATH)/$(OPENCONFIG_FOLDER)/.git
