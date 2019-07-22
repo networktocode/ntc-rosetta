@@ -31,13 +31,30 @@ def _get_openconfig_data_model() -> DataModel:
     return DataModel.from_file(OPENCONFIG_LIB, OPENCONFIG_PATH)
 
 
+def _get_ntc_data_model() -> DataModel:
+    base = pathlib.Path(__file__).parent
+    lib = f"{base}/ntc-yang-models/models/ntc-models-library.json"
+    path = [
+        base.joinpath("ntc-yang-models/models/arp"),
+        base.joinpath("ntc-yang-models/models/ietf"),
+        base.joinpath("ntc-yang-models/models/system"),
+        base.joinpath("ntc-yang-models/models/types"),
+        base.joinpath("ntc-yang-models/models/vlan"),
+        base.joinpath("ntc-yang-models/models/vrf"),
+    ]
+    return DataModel.from_file(lib, path)
+
+
 def get_data_model(model: str = "openconfig") -> DataModel:
     """
     Returns an instantiated data model.
     """
-    if model != "openconfig":
+    if model == "openconfig":
+        return _get_openconfig_data_model()
+    elif model == "ntc":
+        return _get_ntc_data_model()
+    else:
         raise ValueError(f"model {model} not recognized")
-    return _get_openconfig_data_model()
 
 
 __all__ = ("get_data_model",)

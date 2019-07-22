@@ -1,0 +1,5 @@
+pytest
+yangson
+-e git://github.com/dbarrosop/oc-pyang.git@rst_support#egg=oc-pyang
+sphinx
+sphinx_rtd_theme
