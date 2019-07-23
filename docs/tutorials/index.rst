@@ -9,4 +9,7 @@ Tutorials
    ios_translate.ipynb
    ios_merging.ipynb
    ios_smart_diff.ipynb
+   junos_parsing.ipynb
+   junos_translate.ipynb
+   rosetta_and_yangson_walkthrough.ipynb
 
