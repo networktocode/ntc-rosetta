@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "The missing bridge between industry standard CLIs and YANG"
 authors = ["David Barroso <dbarrosop@dravetech.com>"]
 license = "Apache-2.0"
+readme = "README.md"
 
 [tool.poetry.scripts]
 ntc_rosetta = 'ntc_rosetta.cli:run'
