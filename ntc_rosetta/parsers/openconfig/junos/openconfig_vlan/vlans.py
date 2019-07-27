@@ -28,7 +28,11 @@ class Vlan(Parser):
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
             for i in self.native.xpath("/configuration/vlans/vlan"):
-                yield i.findtext("vlan-id"), i
+                elem = i.findtext("vlan-id")
+                if elem is None:
+                    # QFX configuration may not contain vlan-id tag
+                    continue
+                yield elem, i
 
     config = VlanConfig
 

@@ -1,0 +1,132 @@
+module ntc-arp {
+    yang-version "1";
+
+    namespace "https://networktocode.com/yang/arp";
+
+    prefix "ntc-arp";
+
+    import ntc-vrf { prefix "ntc-vrf"; }
+    import ntc-types { prefix "ntc-types"; }
+    import ietf-yang-types { prefix "yang"; }
+
+    organization "Network To Code LLC.";
+
+    contact "www.networktocode.com";
+
+    description
+        "Model to configure and retrieve operational state of ARP and ARP entries";
+
+    revision "2019-05-02" {
+        description
+            "initial version";
+        reference "0.0.1";
+    }
+
+    grouping arp-config {
+        description
+            "Reusable block";
+
+        leaf timeout {
+            description
+                "Cache arp entries for this amount of time (seconds)";
+            type uint16;
+        }
+    }
+
+    grouping entries-common-top {
+        description
+            "Reusable block";
+
+        leaf hw-address {
+            description
+                "Physical address associated to the ARP entry";
+            type yang:mac-address;
+            mandatory true;
+        }
+    }
+
+    grouping entries-config-top {
+        description
+            "Reusable block";
+
+        list entries {
+            description
+                "List of ARP entries configured in the system";
+
+            key "ip-address";
+            leaf ip-address {
+                description
+                    "IP address associated to the ARP entry";
+                type ntc-types:ip-address;
+                mandatory true;
+            }
+            uses entries-common-top;
+
+            leaf vrf {
+                description
+                    "VRF associoated to the ARP entry";
+
+                type leafref {
+                    path "/ntc-vrf:vrf/ntc-vrf:config/ntc-vrf:vrfs/ntc-vrf:name";
+                }
+                mandatory true;
+            }
+        }
+    }
+
+    grouping entries-state-top {
+        description
+            "Reusable block";
+
+        list entries {
+            description
+                "List of ARP entries in the system";
+            key "ip-address";
+            leaf ip-address {
+                description
+                    "IP address associated to the ARP entry";
+                type ntc-types:ip-address;
+                mandatory true;
+            }
+
+            uses entries-common-top;
+
+            leaf vrf {
+                description
+                    "VRF associoated to the ARP entry";
+
+                type leafref {
+                    path "/ntc-vrf:vrf/ntc-vrf:state/ntc-vrf:vrfs/ntc-vrf:name";
+                }
+                mandatory true;
+            }
+        }
+    }
+
+    grouping arp-top {
+        description
+            "Reusable block";
+
+        container arp {
+            description
+                "Top-level container for ARP model";
+            container config {
+                description
+                    "ARP configuration";
+                uses arp-config;
+                uses entries-config-top;
+            }
+
+            container state {
+                description
+                    "ARP state";
+                config false;
+
+                uses arp-config;
+                uses entries-state-top;
+            }
+        }
+    }
+
+    uses arp-top;
+}
