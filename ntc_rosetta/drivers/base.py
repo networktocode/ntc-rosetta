@@ -1,5 +1,7 @@
 from typing import Any, Dict, List, Optional
 
+from ntc_rosetta.yang import get_data_model
+
 from yangify.parser import RootParser
 from yangify.translator import RootTranslator
 
@@ -54,7 +56,14 @@ class Driver:
 
     parser = RootParser
     translator = RootTranslator
-    datamodel = DataModel
+    datamodel_name = ""
+    _datamodel: Optional[DataModel] = None
+
+    @classmethod
+    def get_datamodel(cls) -> DataModel:
+        if cls._datamodel is None:
+            cls._datamodel = get_data_model(cls.datamodel_name)
+        return cls._datamodel
 
     def parse(
         self,
@@ -73,9 +82,11 @@ class Driver:
             excldue: if specify exclude data matching the YANG paths here
         """
         native = native or {}
-        parser = self.parser(self.datamodel, native, include=include, exclude=exclude)
+        parser = self.parser(
+            self.get_datamodel(), native, include=include, exclude=exclude
+        )
         root = parser.process(validate=validate)
-        return ParseResult(root, self.datamodel)
+        return ParseResult(root, self.get_datamodel())
 
     def translate(self, candidate: Dict[str, Any], replace: bool = False) -> Any:
         """
@@ -87,7 +98,7 @@ class Driver:
                 (i.e. defaulting an interface)
         """
         translator = self.translator(
-            self.datamodel, candidate=candidate, replace=replace
+            self.get_datamodel(), candidate=candidate, replace=replace
         )
         return translator.process()
 
@@ -105,6 +116,6 @@ class Driver:
                 (i.e. defaulting an interface)
         """
         translator = self.translator(
-            self.datamodel, candidate=candidate, running=running, replace=replace
+            self.get_datamodel(), candidate=candidate, running=running, replace=replace
         )
         return translator.process()
