@@ -16,4 +16,4 @@ class JunosDriverOpenconfig(Driver):
 class JunosDriverNTC(Driver):
     parser = NTCJunosParser
     translator = NTCJunosTranslator
-    datamodel_namw = "ntc"
+    datamodel_name = "ntc"
