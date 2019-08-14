@@ -11,7 +11,13 @@ from yangify import linter
 @click.command("print-parser")
 @click.option("-j/-t", "--json/--text", "to_json", default=False, help="output format")
 @click.argument("driver")
-@click.argument("model")
+@click.option(
+    "-m",
+    "--model",
+    default="openconfig",
+    type=click.Choice(["openconfig", "ntc"]),
+    help="model to lint",
+)
 @click.pass_context
 def print_parser(ctx: click.Context, driver: str, model: str, to_json: bool) -> None:
     """

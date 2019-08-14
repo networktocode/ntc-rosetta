@@ -1,0 +1,12 @@
+{
+    "ntc-vlan:vlan": {
+        "config": {
+            "vlans": [
+                {
+                    "active": true,
+                    "name": "prod"
+                }
+            ]
+        }
+    }
+}
