@@ -1,0 +1,62 @@
+// module name
+module napalm-star-wars {
+
+    // boilerplate
+    yang-version "1";
+    namespace "https://napalm-yang.readthedocs.io/yang/napalm-star-wars";
+
+    prefix "napalm-star-wars";
+    revision "2019-08-31" {
+      description
+          "initial version";
+      reference "0.0.1";
+    }
+
+    // identity to unequivocally identify the faction an individual belongs to
+    identity AFFILIATION {
+      description "To which group someone belongs to";
+    }
+
+    identity EMPIRE {
+      base AFFILIATION;
+      description "Affiliated to the empire";
+    }
+
+    identity REBEL_ALLIANCE {
+      base AFFILIATION;
+      description "Affiliated to the rebel alliance";
+    }
+
+    // new type to enforce correctness of the data
+    typedef age {
+      type uint16 {
+        range 1..2000;
+      }
+    }
+
+    // this grouping will all the personal data we will assign to individuals
+    grouping personal-data {
+        leaf name {
+            type string;
+        }
+        leaf age {
+            type age;
+        }
+        leaf affiliation {
+            type identityref {
+                base napalm-star-wars:AFFILIATION;
+            }
+        }
+    }
+
+    // this is the root object defined by the model
+    container universe {
+        list individual {
+            // identify each individual by using the name as key
+            key "name";
+
+            // each individual will have the elements defined in the grouping
+            uses personal-data;
+        }
+    }
+}
