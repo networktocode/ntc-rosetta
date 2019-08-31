@@ -2,7 +2,7 @@ import pathlib
 
 from yangson.datamodel import DataModel
 
-_DATAMODELS = {"openconfig": None, "ntc": None}
+_DATAMODELS = {"openconfig": None, "ntc": None, "napalm_star_wars": None}
 
 BASEPATH = pathlib.Path(__file__).parent
 OPENCONFIG_LIB = f"{BASEPATH}/openconfig.json"
@@ -46,6 +46,14 @@ def _get_ntc_data_model() -> DataModel:
     return DataModel.from_file(lib, path)
 
 
+def _get_napalm_star_wars_data_model() -> DataModel:
+    base = pathlib.Path(__file__).parent
+    lib = f"{base}/dummies/models/napalm-star-wars-library.json"
+    path = [
+        base.joinpath("dummies/models/napalm-star-wars"),
+    ]
+    return DataModel.from_file(lib, path)
+
 def get_data_model(model: str = "openconfig") -> DataModel:
     """
     Returns an instantiated data model.
@@ -58,6 +66,10 @@ def get_data_model(model: str = "openconfig") -> DataModel:
         if _DATAMODELS["ntc"] is None:
             _DATAMODELS["ntc"] = _get_ntc_data_model()
         return _DATAMODELS["ntc"]
+    elif model == "napalm_star_wars":
+        if _DATAMODELS["napalm_star_wars"] is None:
+            _DATAMODELS["napalm_star_wars"] = _get_napalm_star_wars_data_model()
+        return _DATAMODELS["napalm_star_wars"]
     else:
         raise ValueError(f"model {model} not recognized")
 
