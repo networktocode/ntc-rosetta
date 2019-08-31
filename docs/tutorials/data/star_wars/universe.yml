@@ -1,0 +1,15 @@
+---
+universe:
+  individuals:
+  - affiliation: REBEL_ALLIANCE
+    age: 57
+    name: Obi-Wan Kenobi
+  - affiliation: REBEL_ALLIANCE
+    age: 19
+    name: Luke Skywalker
+  - affiliation: EMPIRE
+    age: 42
+    name: Darth Vader
+  - affiliation: REBEL_ALLIANCE
+    age: 896
+    name: Yoda
