@@ -1,0 +1,12 @@
+{
+    "ietf-yang-library:modules-state": {
+        "module-set-id": "6bd894f2-9168-484e-a0bf-f3ed38d864f9",
+        "module": [
+            {
+                "name": "napalm-star-wars",
+                "revision": "2019-08-31",
+                "conformance-type": "implement"
+            }
+        ]
+    }
+}
