@@ -1,6 +1,6 @@
 from typing import Dict, Type
 
-from ntc_rosetta.drivers import ios, junos
+from ntc_rosetta.drivers import ios, junos, dummy
 from ntc_rosetta.drivers.base import Driver
 
 
@@ -17,5 +17,6 @@ def get_driver(driver: str, model: str = "openconfig") -> Type[Driver]:
             "junos": junos.JunosDriverOpenconfig,
         },
         "ntc": {"ios": ios.IOSDriverNTC, "junos": junos.JunosDriverNTC},
+        "napalm_star_wars": {"dummy": dummy.DummyDriverNapalmStarWars }
     }
     return mapping[model][driver]
