@@ -1,6 +1,7 @@
 from typing import List, Optional
 
 from ntc_rosetta.helpers import xml_helpers as xh
+from ntc_rosetta.helpers.junos import delete_attr
 
 from lxml import etree
 
@@ -30,13 +31,13 @@ class SwitchedVlanConfig(Translator):
                 and not data.get("trunk-vlans")
                 and not self.replace
             ):
-                etree.SubElement(self.result, "vlan", delete="delete")
+                etree.SubElement(self.result, "vlan", delete_attr())
 
     def interface_mode(self, value: Optional[str]) -> None:
         if value:
             etree.SubElement(self.yy.result, "interface-mode").text = value.lower()
         else:
-            etree.SubElement(self.yy.result, "interface-mode", delete="delete")
+            etree.SubElement(self.yy.result, "interface-mode", delete_attr())
 
     def access_vlan(self, value: Optional[str]) -> None:
         mode = self.yy.candidate.goto(self.yy.path).value.get("interface-mode")

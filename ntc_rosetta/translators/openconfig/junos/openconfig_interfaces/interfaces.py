@@ -3,6 +3,7 @@ from typing import Optional
 from lxml import etree
 
 from ntc_rosetta.helpers import xml_helpers as xh
+from ntc_rosetta.helpers.junos import delete_attr
 from ntc_rosetta.translators.openconfig.junos.openconfig_if_ethernet import ethernet
 
 from yangify.translator import Translator, TranslatorData, unneeded
@@ -18,7 +19,7 @@ class SubinterfaceConfig(Translator):
         if value:
             etree.SubElement(self.yy.result, "description").text = value
         else:
-            etree.SubElement(self.yy.result, "description", delete="delete")
+            etree.SubElement(self.yy.result, "description", delete_attr())
 
 
 class Subinterface(Translator):
@@ -28,7 +29,7 @@ class Subinterface(Translator):
         def pre_process_list(self) -> None:
             if self.to_remove and not self.replace:
                 for element in self.to_remove:
-                    unit = etree.SubElement(self.result, "unit", delete="delete")
+                    unit = etree.SubElement(self.result, "unit", delete_attr())
                     etree.SubElement(unit, "name").text = str(element.value["index"])
 
         def pre_process(self) -> None:
@@ -57,7 +58,7 @@ class InterfaceConfig(Translator):
 
     def enabled(self, value: Optional[bool]) -> None:
         if value:
-            etree.SubElement(self.yy.result, "disable", delete="delete")
+            etree.SubElement(self.yy.result, "disable", delete_attr())
         else:
             etree.SubElement(self.yy.result, "disable")
 
@@ -70,7 +71,7 @@ class Interface(Translator):
             if self.to_remove:
                 for element in self.to_remove:
                     xpath = f"interface[name={element.value['name']}]"
-                    xh.find_or_create(self.root_result, xpath, delete="delete")
+                    xh.find_or_create(self.root_result, xpath, delete_attr())
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.result, "interface")

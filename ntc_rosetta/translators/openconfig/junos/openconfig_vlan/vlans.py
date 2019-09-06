@@ -3,6 +3,7 @@ from typing import Optional
 from lxml import etree
 
 from yangify.translator import Translator, TranslatorData, unneeded
+from ntc_rosetta.helpers.junos import delete_attr
 
 
 class VlanConfig(Translator):
@@ -15,11 +16,11 @@ class VlanConfig(Translator):
         if value:
             etree.SubElement(self.yy.result, "name").text = value
         else:
-            etree.SubElement(self.yy.result, "name", delete="delete")
+            etree.SubElement(self.yy.result, "name", delete_attr())
 
     def status(self, value: Optional[str]) -> None:
         if value == "ACTIVE":
-            etree.SubElement(self.yy.result, "disable", delete="delete")
+            etree.SubElement(self.yy.result, "disable", delete_attr())
         else:
             etree.SubElement(self.yy.result, "disable")
 
@@ -33,7 +34,7 @@ class Vlan(Translator):
         def pre_process_list(self) -> None:
             if self.to_remove and not self.replace:
                 for element in self.to_remove:
-                    iface = etree.SubElement(self.result, "vlan", delete="delete")
+                    iface = etree.SubElement(self.result, "vlan", delete_attr())
                     etree.SubElement(iface, "vlan-id").text = str(
                         element.value["vlan-id"]
                     )
