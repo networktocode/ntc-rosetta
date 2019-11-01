@@ -3,6 +3,7 @@ override PYTHON=3.6
 endif
 
 DOCKER=docker run -p 8888:8888 -v ${PWD}:/ntc_rosetta ntc_rosetta-${PYTHON}:latest
+DEV_ME=docker run -it -v $(PWD):/ntc_rosetta ntc_rosetta-${PYTHON}:latest /bin/bash
 
 YANG_VENDORED_BASE_PATH=ntc_rosetta/yang
 
@@ -26,10 +27,9 @@ build_test_containers:
 	make build_test_container PYTHON=3.6
 	make build_test_container PYTHON=3.7
 
-.PHONY: enter-container
-enter-container:
-	${DOCKER} \
-		bash
+.PHONY: enter_dev_container
+enter_dev_container:
+	${DEV_ME}
 
 .PHONY: pytest
 pytest:
