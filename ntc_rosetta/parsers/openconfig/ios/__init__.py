@@ -4,9 +4,7 @@ from ntc_rosetta.parsers.openconfig.ios.openconfig_interfaces.interfaces import 
 from ntc_rosetta.parsers.openconfig.ios.openconfig_network_instance.network_instances import (
     NetworkInstances,
 )
-from ntc_rosetta.parsers.openconfig.ios.openconfig_system.system import (
-    System,
-)
+from ntc_rosetta.parsers.openconfig.ios.openconfig_system.system import System
 
 from yangify import parser
 from yangify.parser.text_tree import parse_indented_config

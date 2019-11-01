@@ -8,6 +8,7 @@ import json
 
 import re
 
+
 class ClockConfig(Parser):
     class Yangify(ParserData):
         path = "/openconfig-system:system/clock/config"
@@ -18,11 +19,13 @@ class ClockConfig(Parser):
             return str(v)
         return None
 
+
 class Clock(Parser):
     config = ClockConfig
 
     class Yangify(ParserData):
         path = "/openconfig-system:system/clock"
+
 
 class DnsConfig(Parser):
     class Yangify(ParserData):
@@ -30,6 +33,7 @@ class DnsConfig(Parser):
 
     def search(self) -> str:
         return None
+
 
 class DnsServerConfig(Parser):
     class Yangify(ParserData):
@@ -41,30 +45,31 @@ class DnsServerConfig(Parser):
     def port(self) -> int:
         return 53
 
-class DnsServer(Parser):
 
+class DnsServer(Parser):
     class Yangify(ParserData):
         path = "/openconfig-system:system/dns/servers/server"
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
-            dns = jh.query('ip."name-server"',self.native)
+            dns = jh.query('ip."name-server"', self.native)
             if dns:
                 for k, v in dns.items():
                     if k == "#text":
                         continue
                     yield k, v
 
-
     def address(self) -> str:
         return str(self.yy.key)
 
     config = DnsServerConfig
+
 
 class DnsServers(Parser):
     server = DnsServer
 
     class Yangify(ParserData):
         path = "/openconfig-system:system/dns/servers"
+
 
 class Dns(Parser):
     config = DnsConfig
@@ -73,12 +78,13 @@ class Dns(Parser):
     class Yangify(ParserData):
         path = "/openconfig-system:system/dns"
 
+
 class NtpConfig(Parser):
     class Yangify(ParserData):
         path = "/openconfig-system:system/ntp/config"
 
     def enabled(self) -> bool:
-        if jh.query('ntp',self.yy.native):
+        if jh.query("ntp", self.yy.native):
             return True
         return False
 
@@ -86,9 +92,10 @@ class NtpConfig(Parser):
         return None
 
     def enable_ntp_auth(self) -> bool:
-        if jh.query('ntp.authenticate',self.yy.native):
+        if jh.query("ntp.authenticate", self.yy.native):
             return True
         return False
+
 
 class NtpServerConfig(Parser):
     class Yangify(ParserData):
@@ -96,6 +103,7 @@ class NtpServerConfig(Parser):
 
     def address(self) -> str:
         return str(self.yy.key)
+
 
 class NtpServer(Parser):
     config = NtpServerConfig
@@ -112,11 +120,13 @@ class NtpServer(Parser):
     def address(self) -> str:
         return str(self.yy.key)
 
+
 class NtpServers(Parser):
     server = NtpServer
 
     class Yangify(ParserData):
         path = "/openconfig-system:system/ntp/servers"
+
 
 class Ntp(Parser):
     config = NtpConfig
@@ -124,6 +134,7 @@ class Ntp(Parser):
 
     class Yangify(ParserData):
         path = "/openconfig-system:system/ntp"
+
 
 class SshServerConfig(Parser):
     class Yangify(ParserData):
@@ -148,11 +159,13 @@ class SshServerConfig(Parser):
             return timeout
         return None
 
+
 class SshServer(Parser):
     config = SshServerConfig
 
     class Yangify(ParserData):
         path = "/openconfig-system:system/ssh-server"
+
 
 class TelnetServerConfig(Parser):
     class Yangify(ParserData):
@@ -166,11 +179,13 @@ class TelnetServerConfig(Parser):
     def timeout(self) -> int:
         return None
 
+
 class TelnetServer(Parser):
     config = TelnetServerConfig
 
     class Yangify(ParserData):
         path = "/openconfig-system:system/telnet-server"
+
 
 class AaaAuthenticationUserConfig(Parser):
     class Yangify(ParserData):
@@ -182,7 +197,7 @@ class AaaAuthenticationUserConfig(Parser):
     def role(self) -> str:
         text = jh.query('"#text"', self.yy.native)
 
-        role_RE = 'privilege\s(.*)(?:\ssecret|\spassword)'
+        role_RE = "privilege\s(.*)(?:\ssecret|\spassword)"
         result = re.match(role_RE, text)
 
         if result:
@@ -191,7 +206,7 @@ class AaaAuthenticationUserConfig(Parser):
 
     def password(self) -> str:
         text = jh.query('"#text"', self.yy.native)
-        password_RE = '.*password\s(.*)'
+        password_RE = ".*password\s(.*)"
         result = re.match(password_RE, text)
 
         if result:
@@ -200,7 +215,7 @@ class AaaAuthenticationUserConfig(Parser):
 
     def password_hashed(self) -> str:
         text = jh.query('"#text"', self.yy.native)
-        password_RE = '.*secret\s(.*)'
+        password_RE = ".*secret\s(.*)"
         result = re.match(password_RE, text)
 
         if result:
@@ -210,11 +225,13 @@ class AaaAuthenticationUserConfig(Parser):
     def ssh_key(self) -> str:
         return None
 
+
 class AaaAuthenticationUser(Parser):
     config = AaaAuthenticationUserConfig
 
     class Yangify(ParserData):
         path = "/openconfig-system:system/aaa/authentication/users/user"
+
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
             for k, v in self.native["username"].items():
                 if k == "#text":
@@ -224,11 +241,13 @@ class AaaAuthenticationUser(Parser):
     def username(self) -> str:
         return str(self.yy.key)
 
+
 class AaaAuthenticationUsers(Parser):
     user = AaaAuthenticationUser
 
     class Yangify(ParserData):
         path = "/openconfig-system:system/aaa/authentication/users"
+
 
 class AaaAuthentication(Parser):
     users = AaaAuthenticationUsers
@@ -236,8 +255,10 @@ class AaaAuthentication(Parser):
     class Yangify(ParserData):
         path = "/openconfig-system:system/aaa/authentication"
 
+
 class Aaa(Parser):
     authentication = AaaAuthentication
+
     class Yangify(ParserData):
         path = "/openconfig-system:system/aaa"
 
@@ -267,6 +288,7 @@ class SystemConfig(Parser):
     def motd_banner(self) -> str:
         # TODO
         return None
+
 
 class System(Parser):
     config = SystemConfig

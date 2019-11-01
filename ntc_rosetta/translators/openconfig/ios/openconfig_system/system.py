@@ -3,9 +3,11 @@ from ntc_rosetta.helpers import json_helpers as jh
 
 import json
 
+
 class DnsConfig(Translator):
     class Yangify(TranslatorData):
         path = "openconfig-system:system/dns/config"
+
 
 class DnsServerConfig(Translator):
     class Yangify(TranslatorData):
@@ -27,15 +29,16 @@ class DnsServer(Translator):
         if value:
             self.yy.result.add_command(f"dns server {value}")
 
+
 class DnsServers(Translator):
     server = DnsServer
 
     class Yangify(TranslatorData):
         path = "openconfig-system:system/dns/servers"
 
-
         def pre_process(self) -> None:
             pass
+
 
 class Dns(Translator):
     class Yangify(TranslatorData):
@@ -44,9 +47,11 @@ class Dns(Translator):
     config = DnsConfig
     servers = DnsServers
 
+
 class NtpServerConfig(Translator):
     class Yangify(TranslatorData):
         path = "openconfig-system:system/ntp/servers/server/config"
+
 
 class NtpServer(Translator):
     config = NtpServerConfig
@@ -62,15 +67,18 @@ class NtpServer(Translator):
     def address(self, value: str):
         self.yy.result.add_command(f"ntp server {value} prefer")
 
+
 class NtpServers(Translator):
     server = NtpServer
 
     class Yangify(TranslatorData):
         path = "openconfig-system:system/ntp/servers"
 
+
 class NtpConfig(Translator):
     class Yangify(TranslatorData):
         path = "openconfig-system:system/ntp/config"
+
 
 class Ntp(Translator):
     class Yangify(TranslatorData):
@@ -78,6 +86,7 @@ class Ntp(Translator):
 
     config = NtpConfig
     servers = NtpServers
+
 
 class SshServerConfig(Translator):
     class Yangify(TranslatorData):
@@ -95,11 +104,13 @@ class SshServerConfig(Translator):
         if value:
             self.yy.result.add_command(f"ip ssh time-out {value}")
 
+
 class SshServer(Translator):
     class Yangify(TranslatorData):
         path = "openconfig-system:system/ssh-server"
 
     config = SshServerConfig
+
 
 class AaaAuthenticationUserConfig(Translator):
     class Yangify(TranslatorData):
@@ -107,38 +118,43 @@ class AaaAuthenticationUserConfig(Translator):
 
         def pre_process(self) -> None:
             self.extra = {
-                    "username": "",
-                    "password": "",
-                    "password_hash": "",
-                    "role": "",
-                    "ssh_key": ""
+                "username": "",
+                "password": "",
+                "password_hash": "",
+                "role": "",
+                "ssh_key": "",
             }
 
         def post_process(self) -> None:
             extra = self.extra
-            if not extra['username'] or not extra['role'] or not extra['password_hash']:
+            if not extra["username"] or not extra["role"] or not extra["password_hash"]:
                 return None
-            self.result.add_command("username {} privilege {} secret {}".format(extra['username'], extra['role'], extra['password_hash']))
+            self.result.add_command(
+                "username {} privilege {} secret {}".format(
+                    extra["username"], extra["role"], extra["password_hash"]
+                )
+            )
 
     def username(self, value: str):
-        self.yy.extra['username'] = value
+        self.yy.extra["username"] = value
         return None
 
     def role(self, value: str):
-        self.yy.extra['role'] = value
+        self.yy.extra["role"] = value
         return None
 
     def password(self, value: str):
-        self.yy.extra['password'] = value
+        self.yy.extra["password"] = value
         return None
 
     def password_hashed(self, value: str):
-        self.yy.extra['password_hash'] = value
+        self.yy.extra["password_hash"] = value
         return None
 
     def ssh_key(self, value: str):
-        self.yy.extra['ssh_key'] = value
+        self.yy.extra["ssh_key"] = value
         return None
+
 
 class AaaAuthenticationUser(Translator):
     class Yangify(TranslatorData):
@@ -146,11 +162,13 @@ class AaaAuthenticationUser(Translator):
 
     config = AaaAuthenticationUserConfig
 
+
 class AaaAuthenticationUsers(Translator):
     class Yangify(TranslatorData):
         path = "openconfig-system:system/aaa/authentication/users"
 
     user = AaaAuthenticationUser
+
 
 class AaaAuthentication(Translator):
     class Yangify(TranslatorData):
@@ -158,11 +176,13 @@ class AaaAuthentication(Translator):
 
     users = AaaAuthenticationUsers
 
+
 class Aaa(Translator):
     class Yangify(TranslatorData):
         path = "openconfig-system:system/aaa"
 
     authentication = AaaAuthentication
+
 
 class SystemConfig(Translator):
     class Yangify(TranslatorData):
@@ -173,6 +193,7 @@ class SystemConfig(Translator):
             self.yy.result.add_command(f"hostname {value}")
         else:
             self.yy.result.add_command(f"no hostname")
+
 
 class System(Translator):
     class Yangify(TranslatorData):

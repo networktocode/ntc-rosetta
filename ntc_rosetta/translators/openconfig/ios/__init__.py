@@ -5,9 +5,7 @@ from ntc_rosetta.translators.openconfig.ios.openconfig_network_instance.network_
     NetworkInstances,
 )
 
-from ntc_rosetta.translators.openconfig.ios.openconfig_system.system import (
-    System,
-)
+from ntc_rosetta.translators.openconfig.ios.openconfig_system.system import System
 
 from yangify import translator
 from yangify.translator.config_tree import ConfigTree
