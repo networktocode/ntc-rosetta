@@ -1,0 +1,43 @@
+{
+    "ietf-yang-library:modules-state": {
+        "module-set-id": "d6d49480-275b-4b9a-a15f-f68f3b3c38d5",
+        "module": [
+            {
+                "name": "ietf-yang-types",
+                "revision": "2013-07-15",
+                "conformance-type": "import"
+            },
+            {
+                "name": "ntc-arp",
+                "revision": "2019-05-02",
+                "conformance-type": "implement"
+            },
+            {
+                "name": "ntc-system",
+                "revision": "2019-05-02",
+                "conformance-type": "implement",
+                "submodule": [
+                  {
+                    "name": "ntc-system-snmp",
+                    "revision": "2019-05-02"
+                  }
+                ]
+            },
+            {
+                "name": "ntc-types",
+                "revision": "2019-05-02",
+                "conformance-type": "import"
+            },
+            {
+                "name": "ntc-vlan",
+                "revision": "2019-05-02",
+                "conformance-type": "implement"
+            },
+            {
+                "name": "ntc-vrf",
+                "revision": "2019-05-02",
+                "conformance-type": "implement"
+            }
+        ]
+    }
+}

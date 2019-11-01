@@ -1,0 +1,130 @@
+submodule ntc-system-snmp {
+    belongs-to "ntc-system" {
+        prefix "ntc-system";
+    }
+
+    organization "Network To Code LLC.";
+
+    contact "www.networktocode.com";
+
+    description
+        "Model to configure and retrieve SNMP data";
+
+    revision "2019-05-02" {
+        description
+            "initial version";
+        reference "0.0.1";
+    }
+
+    typedef snmp-version {
+        type enumeration {
+            enum "SNMP_VERESION_1" {
+                description
+                    "SNMP version 1";
+            }
+            enum "SNMP_VERSION_2C" {
+                description
+                    "SNMP version 2c";
+            }
+            enum "SNMP_VERSION_3" {
+                description
+                    "SNMP version 3";
+            }
+        }
+        description
+            "SNMP version";
+    }
+
+    grouping community-config {
+        description
+            "Reusable block";
+
+        leaf name {
+            description
+                "Name of community";
+            type string;
+        }
+
+        leaf version {
+            description
+                "SNMP version allowed by the community";
+            type snmp-version;
+        }
+        container access-list {
+            description
+                "Access list protecting the community";
+            leaf ipv4 {
+                description
+                    "IPv4 access-list";
+                type string;
+            }
+            leaf ipv6 {
+                description
+                    "IPv6 access-list";
+                type string;
+            }
+        }
+    }
+
+    grouping communities-top {
+        description
+            "Reusable block";
+
+        list communities {
+            description
+                "List of communities in the system";
+            key "name";
+            uses community-config;
+        }
+    }
+
+    grouping snmp-config {
+        description
+            "Reusable block";
+
+        leaf name {
+            description
+                "Name of the commnity";
+            type string;
+        }
+        leaf description {
+            description
+                "Description of the system";
+            type string;
+        }
+        leaf contact {
+            description
+                "Contact information for the system";
+            type string;
+        }
+        leaf location {
+            description
+                "Location information of the system";
+            type string;
+        }
+    }
+
+    grouping snmp-config-top {
+        description
+            "Reusable block";
+
+        container snmp {
+            description
+                "Top level container for SNMP configuration";
+            uses communities-top;
+            uses snmp-config;
+        }
+    }
+
+    grouping snmp-state-top {
+        description
+            "Reusable block";
+
+        container snmp {
+            description
+                "Top level container for SNMP state";
+            uses communities-top;
+            uses snmp-config;
+        }
+    }
+}

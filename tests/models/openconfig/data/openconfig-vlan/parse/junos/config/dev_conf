@@ -36,6 +36,35 @@
                     </family>
                 </unit>
             </interface>
+            <interface>
+                <name>xe-0/0/4</name>
+                <unit>
+                    <name>0</name>
+                    <family>
+                        <ethernet-switching>
+                            <interface-mode>trunk</interface-mode>
+                            <vlan>
+                                <members>VLAN-100</members>
+                                <members>VLAN-200</members>
+                            </vlan>
+                        </ethernet-switching>
+                    </family>
+                </unit>
+            </interface>
+            <interface>
+                <name>xe-0/0/5</name>
+                <unit>
+                    <name>0</name>
+                    <family>
+                        <ethernet-switching>
+                            <interface-mode>access</interface-mode>
+                            <vlan>
+                                <members>VLAN-100</members>
+                            </vlan>
+                        </ethernet-switching>
+                    </family>
+                </unit>
+            </interface>
         </interfaces>
     <vlans>
             <vlan>
@@ -48,6 +77,14 @@
             </vlan>
             <vlan inactive="inactive">
                 <vlan-id>10</vlan-id>
+            </vlan>
+            <vlan>
+                <name>VLAN-100</name>
+                <vlan-id>100</vlan-id>
+            </vlan>
+            <vlan>
+                <name>VLAN-200</name>
+                <vlan-id>200</vlan-id>
             </vlan>
     </vlans>
 </configuration>

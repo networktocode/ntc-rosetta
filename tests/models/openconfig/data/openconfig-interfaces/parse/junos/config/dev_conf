@@ -24,5 +24,45 @@
                     <name>0</name>
                 </unit>
             </interface>
+            <interface>
+                <name>et-0/0/48</name>
+            </interface>
+            <interface>
+                <name>irb</name>
+                <unit>
+                    <name>0</name>
+                </unit>
+                <unit>
+                    <name>301</name>
+                    <family>
+                        <inet>
+                            <address>
+                                <name>192.168.255.1/24</name>
+                            </address>
+                        </inet>
+                    </family>
+                </unit>
+            </interface>
+            <interface>
+                <name>ae16</name>
+                <description>Some port name</description>
+                <mtu>9156</mtu>
+                <aggregated-ether-options>
+                    <lacp>
+                        <active/>
+                    </lacp>
+                </aggregated-ether-options>
+                <unit>
+                    <name>0</name>
+                    <family>
+                        <inet>
+                            <no-redirects/>
+                            <address>
+                                <name>10.1.1.1/24</name>
+                            </address>
+                        </inet>
+                    </family>
+                </unit>
+            </interface>
         </interfaces>
 </configuration>

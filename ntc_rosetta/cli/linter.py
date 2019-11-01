@@ -24,18 +24,29 @@ Errors/Warning message codes:
 
 @click.command("lint", help=LINT_HELP)
 @click.option("-i", "--ignore", multiple=True, help="ignore error/warning codes")
+@click.option(
+    "-m",
+    "--model",
+    default="openconfig",
+    type=click.Choice(["openconfig", "ntc"]),
+    help="model to lint",
+)
 @click.option("-j/-t", "--json/--text", "to_json", default=False, help="output format")
 @click.argument("filepaths", nargs=-1)
 @click.pass_context
 def lint(
-    ctx: click.Context, filepaths: Tuple[str], ignore: Tuple[str], to_json: bool
+    ctx: click.Context,
+    filepaths: Tuple[str],
+    ignore: Tuple[str],
+    to_json: bool,
+    model: str,
 ) -> None:
     failed = False
     if not filepaths:
         filepaths = (".",)
     for filepath in filepaths:
         path = pathlib.Path(f"{filepath}")
-        lint = linter.Linter.lint(path, get_data_model(), ignore=ignore)
+        lint = linter.Linter.lint(path, get_data_model(model), ignore=ignore)
         if to_json:
             text = json.dumps(lint.serialize(), indent=4)
         else:

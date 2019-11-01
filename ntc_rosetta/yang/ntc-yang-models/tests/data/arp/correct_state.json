@@ -1,0 +1,22 @@
+{
+    "ntc-arp:arp": {
+        "state": {
+            "entries": [
+                {
+                    "ip-address": "192.168.0.0",
+                    "hw-address": "00:11:22:33:44:55",
+                    "vrf": "global"
+                }
+            ]
+        }
+    },
+    "ntc-vrf:vrf": {
+        "state": {
+            "vrfs": [
+                {
+                    "name": "global"
+                }
+            ]
+        }
+    }
+}
