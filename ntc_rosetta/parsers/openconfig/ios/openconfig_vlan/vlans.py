@@ -7,7 +7,7 @@ from yangify.parser import Parser, ParserData
 
 class VlanConfig(Parser):
     class Yangify(ParserData):
-        path = "openconfig-network-instance:network-instances/network-instance/vlans/vlan/config"
+        path = "/openconfig-network-instance:network-instances/network-instance/vlans/vlan/config"
 
     def vlan_id(self) -> int:
         return int(self.yy.key)
@@ -46,7 +46,7 @@ class Vlan(Parser):
 
 class Vlans(Parser):
     class Yangify(ParserData):
-        path = "openconfig-network-instance:network-instances/network-instance/vlans"
+        path = "/openconfig-network-instance:network-instances/network-instance/vlans"
 
         def pre_process(self) -> None:
             self.native: Dict[str, Any] = self.root_native["dev_conf"]

@@ -4,17 +4,17 @@ from yangify.translator import Translator, TranslatorData, unneeded
 
 class DnsConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns/config"
+        path = "/openconfig-system:system/dns/config"
 
 
 class DnsServerConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns/servers/server/config"
+        path = "/openconfig-system:system/dns/servers/server/config"
 
 
 class DnsServer(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns/servers/server"
+        path = "/openconfig-system:system/dns/servers/server"
 
     def address(self, value: str):
         etree.SubElement(self.yy.result, "name").text = value
@@ -24,7 +24,7 @@ class DnsServer(Translator):
 
 class DnsServers(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns/servers"
+        path = "/openconfig-system:system/dns/servers"
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.result, "name-server")
@@ -34,7 +34,7 @@ class DnsServers(Translator):
 
 class Dns(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns"
+        path = "/openconfig-system:system/dns"
 
     config = DnsConfig
     servers = DnsServers
@@ -42,12 +42,12 @@ class Dns(Translator):
 
 class NtpServerConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp/servers/server/config"
+        path = "/openconfig-system:system/ntp/servers/server/config"
 
 
 class NtpServer(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp/servers/server"
+        path = "/openconfig-system:system/ntp/servers/server"
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.result, "server")
@@ -60,7 +60,7 @@ class NtpServer(Translator):
 
 class NtpServers(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp/servers"
+        path = "/openconfig-system:system/ntp/servers"
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.result, "ntp")
@@ -70,12 +70,12 @@ class NtpServers(Translator):
 
 class NtpConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp/config"
+        path = "/openconfig-system:system/ntp/config"
 
 
 class Ntp(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp"
+        path = "/openconfig-system:system/ntp"
 
     config = NtpConfig
     servers = NtpServers
@@ -83,7 +83,7 @@ class Ntp(Translator):
 
 class SshServerConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ssh-server/config"
+        path = "/openconfig-system:system/ssh-server/config"
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.result, "services")
@@ -103,14 +103,14 @@ class SshServerConfig(Translator):
 
 class SshServer(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ssh-server"
+        path = "/openconfig-system:system/ssh-server"
 
     config = SshServerConfig
 
 
 class AaaAuthenticationUserConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/authentication/users/user/config"
+        path = "/openconfig-system:system/aaa/authentication/users/user/config"
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.result, "user")
@@ -140,28 +140,28 @@ class AaaAuthenticationUserConfig(Translator):
 
 class AaaAuthenticationUser(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/authentication/users/user"
+        path = "/openconfig-system:system/aaa/authentication/users/user"
 
     config = AaaAuthenticationUserConfig
 
 
 class AaaAuthenticationUsers(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/authentication/users"
+        path = "/openconfig-system:system/aaa/authentication/users"
 
     user = AaaAuthenticationUser
 
 
 class AaaAuthentication(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/authentication"
+        path = "/openconfig-system:system/aaa/authentication"
 
     users = AaaAuthenticationUsers
 
 
 class AaaTacacsConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/server-groups/server-group/servers/server/tacacs/config"
+        path = "/openconfig-system:system/aaa/server-groups/server-group/servers/server/tacacs/config"
 
     def secret_key(self, value: str) -> None:
         etree.SubElement(self.yy.result, "name").text = value
@@ -174,7 +174,7 @@ class AaaTacacsConfig(Translator):
 
 class AaaTacacs(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/server-groups/server-group/servers/server/tacacs"
+        path = "/openconfig-system:system/aaa/server-groups/server-group/servers/server/tacacs"
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(
@@ -186,7 +186,7 @@ class AaaTacacs(Translator):
 
 class AaaServerGroupServersServer(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/server-groups/server-group/servers/server"
+        path = "/openconfig-system:system/aaa/server-groups/server-group/servers/server"
 
     tacacs = AaaTacacs
     address = unneeded
@@ -194,14 +194,14 @@ class AaaServerGroupServersServer(Translator):
 
 class AaaServerGroupServers(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/server-groups/server-group/servers"
+        path = "/openconfig-system:system/aaa/server-groups/server-group/servers"
 
     server = AaaServerGroupServersServer
 
 
 class AaaServerGroup(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/server-groups/server-group"
+        path = "/openconfig-system:system/aaa/server-groups/server-group"
 
     servers = AaaServerGroupServers
     name = unneeded
@@ -209,14 +209,14 @@ class AaaServerGroup(Translator):
 
 class AaaServerGroups(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/server-groups"
+        path = "/openconfig-system:system/aaa/server-groups"
 
     server_group = AaaServerGroup
 
 
 class Aaa(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa"
+        path = "/openconfig-system:system/aaa"
 
     authentication = AaaAuthentication
     server_groups = AaaServerGroups
@@ -224,7 +224,7 @@ class Aaa(Translator):
 
 class SystemConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/config"
+        path = "/openconfig-system:system/config"
 
     def hostname(self, value: str) -> None:
         etree.SubElement(self.yy.result, "host-name").text = value
@@ -232,7 +232,7 @@ class SystemConfig(Translator):
 
 class System(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system"
+        path = "/openconfig-system:system"
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.result, "system")  # type: ignore

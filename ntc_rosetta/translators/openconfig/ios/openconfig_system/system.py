@@ -6,19 +6,19 @@ import json
 
 class DnsConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns/config"
+        path = "/openconfig-system:system/dns/config"
 
 
 class DnsServerConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns/servers/server/config"
+        path = "/openconfig-system:system/dns/servers/server/config"
 
 
 class DnsServer(Translator):
     config = DnsServerConfig
 
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns/servers/server"
+        path = "/openconfig-system:system/dns/servers/server"
 
         def pre_process_list(self) -> None:
             if self.to_remove:
@@ -34,7 +34,7 @@ class DnsServers(Translator):
     server = DnsServer
 
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns/servers"
+        path = "/openconfig-system:system/dns/servers"
 
         def pre_process(self) -> None:
             pass
@@ -42,7 +42,7 @@ class DnsServers(Translator):
 
 class Dns(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/dns"
+        path = "/openconfig-system:system/dns"
 
     config = DnsConfig
     servers = DnsServers
@@ -50,14 +50,14 @@ class Dns(Translator):
 
 class NtpServerConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp/servers/server/config"
+        path = "/openconfig-system:system/ntp/servers/server/config"
 
 
 class NtpServer(Translator):
     config = NtpServerConfig
 
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp/servers/server"
+        path = "/openconfig-system:system/ntp/servers/server"
 
         def pre_process_list(self) -> None:
             if self.to_remove:
@@ -72,17 +72,17 @@ class NtpServers(Translator):
     server = NtpServer
 
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp/servers"
+        path = "/openconfig-system:system/ntp/servers"
 
 
 class NtpConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp/config"
+        path = "/openconfig-system:system/ntp/config"
 
 
 class Ntp(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ntp"
+        path = "/openconfig-system:system/ntp"
 
     config = NtpConfig
     servers = NtpServers
@@ -90,7 +90,7 @@ class Ntp(Translator):
 
 class SshServerConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ssh-server/config"
+        path = "/openconfig-system:system/ssh-server/config"
 
     def protocol_version(self, value: str) -> None:
         if value == "V2":
@@ -107,14 +107,14 @@ class SshServerConfig(Translator):
 
 class SshServer(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/ssh-server"
+        path = "/openconfig-system:system/ssh-server"
 
     config = SshServerConfig
 
 
 class AaaAuthenticationUserConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/authentication/users/user/config"
+        path = "/openconfig-system:system/aaa/authentication/users/user/config"
 
         def pre_process(self) -> None:
             self.extra = {
@@ -158,35 +158,35 @@ class AaaAuthenticationUserConfig(Translator):
 
 class AaaAuthenticationUser(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/authentication/users/user"
+        path = "/openconfig-system:system/aaa/authentication/users/user"
 
     config = AaaAuthenticationUserConfig
 
 
 class AaaAuthenticationUsers(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/authentication/users"
+        path = "/openconfig-system:system/aaa/authentication/users"
 
     user = AaaAuthenticationUser
 
 
 class AaaAuthentication(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa/authentication"
+        path = "/openconfig-system:system/aaa/authentication"
 
     users = AaaAuthenticationUsers
 
 
 class Aaa(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/aaa"
+        path = "/openconfig-system:system/aaa"
 
     authentication = AaaAuthentication
 
 
 class SystemConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system/config"
+        path = "/openconfig-system:system/config"
 
     def hostname(self, value: str) -> None:
         if value:
@@ -197,7 +197,7 @@ class SystemConfig(Translator):
 
 class System(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-system:system"
+        path = "/openconfig-system:system"
 
         def pre_process(self) -> None:
             pass
