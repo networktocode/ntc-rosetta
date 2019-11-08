@@ -9,24 +9,10 @@ OPENCONFIG_LIB = f"{BASEPATH}/openconfig.json"
 OPENCONFIG_PATH = [
     BASEPATH.joinpath("YangModels/standard/ietf/RFC"),
     BASEPATH.joinpath("openconfig/release/models"),
-    BASEPATH.joinpath("openconfig/release/models/acl"),
-    BASEPATH.joinpath("openconfig/release/models/aft"),
-    BASEPATH.joinpath("openconfig/release/models/bgp"),
-    BASEPATH.joinpath("openconfig/release/models/interfaces"),
-    BASEPATH.joinpath("openconfig/release/models/isis"),
-    BASEPATH.joinpath("openconfig/release/models/mpls"),
-    BASEPATH.joinpath("openconfig/release/models/multicast"),
-    BASEPATH.joinpath("openconfig/release/models/network-instance"),
-    BASEPATH.joinpath("openconfig/release/models/local-routing"),
-    BASEPATH.joinpath("openconfig/release/models/ospf"),
-    BASEPATH.joinpath("openconfig/release/models/policy"),
-    BASEPATH.joinpath("openconfig/release/models/platform"),
-    BASEPATH.joinpath("openconfig/release/models/policy-forwarding"),
-    BASEPATH.joinpath("openconfig/release/models/rib"),
-    BASEPATH.joinpath("openconfig/release/models/segment-routing"),
-    BASEPATH.joinpath("openconfig/release/models/system"),
-    BASEPATH.joinpath("openconfig/release/models/types"),
-    BASEPATH.joinpath("openconfig/release/models/vlan"),
+] + [
+    fname
+    for fname in BASEPATH.joinpath("openconfig/release/models").iterdir()
+    if fname.is_dir()
 ]
 
 
