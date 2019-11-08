@@ -1,10 +1,9 @@
-from typing import Any, Dict, Iterator, Tuple, cast, Union
+from typing import Any, Dict, Iterator, Tuple
 
 from ntc_rosetta.helpers import json_helpers as jh
 
 from yangify.parser import Parser, ParserData
 
-import json
 
 import re
 
@@ -197,7 +196,7 @@ class AaaAuthenticationUserConfig(Parser):
     def role(self) -> str:
         text = jh.query('"#text"', self.yy.native)
 
-        role_RE = "privilege\s(.*)(?:\ssecret|\spassword)"
+        role_RE = r"privilege\s(.*)(?:\ssecret|\spassword)"
         result = re.match(role_RE, text)
 
         if result:
@@ -206,7 +205,7 @@ class AaaAuthenticationUserConfig(Parser):
 
     def password(self) -> str:
         text = jh.query('"#text"', self.yy.native)
-        password_RE = ".*password\s(.*)"
+        password_RE = r".*password\s(.*)"
         result = re.match(password_RE, text)
 
         if result:
@@ -215,7 +214,7 @@ class AaaAuthenticationUserConfig(Parser):
 
     def password_hashed(self) -> str:
         text = jh.query('"#text"', self.yy.native)
-        password_RE = ".*secret\s(.*)"
+        password_RE = r".*secret\s(.*)"
         result = re.match(password_RE, text)
 
         if result:

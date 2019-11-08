@@ -1,7 +1,4 @@
-from yangify.translator import Translator, TranslatorData, unneeded
-from ntc_rosetta.helpers import json_helpers as jh
-
-import json
+from yangify.translator import Translator, TranslatorData
 
 
 class DnsConfig(Translator):

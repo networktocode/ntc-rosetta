@@ -40,6 +40,8 @@ class Subinterface(Translator):
     index = unneeded
 
     config = SubinterfaceConfig
+    ipv4 = Ipv4
+    ipv6 = Ipv6
 
 
 class Subinterfaces(Translator):
@@ -47,8 +49,6 @@ class Subinterfaces(Translator):
         path = "/openconfig-interfaces:interfaces/interface/subinterfaces"
 
     subinterface = Subinterface
-    ipv4 = Ipv4
-    ipv6 = Ipv6
 
 
 class InterfaceConfig(Translator):
