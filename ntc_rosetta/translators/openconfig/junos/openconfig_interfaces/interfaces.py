@@ -70,7 +70,7 @@ class Interface(Translator):
             if self.to_remove:
                 for element in self.to_remove:
                     xpath = f"interface[name={element.value['name']}]"
-                    xh.find_or_create(self.root_result, xpath, delete="delete")
+                    xh.find_or_create(self.root_result, xpath)
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.result, "interface")
