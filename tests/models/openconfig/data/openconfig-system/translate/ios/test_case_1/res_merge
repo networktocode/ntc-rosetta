@@ -1,0 +1,10 @@
+hostname csr1000v-1
+ip name-server 8.8.8.8
+ntp server 2610:20:6F96:96::6
+ntp server 129.6.15.29
+ip ssh version 2
+ip ssh time-out 60
+username developer privilege 15 secret 9 $9$fhUXi6Xg438iAE$..VhXRCHiDQy3K2zmZUl9iZLbQJ9wpUtQZwQxSRESc2
+username cisco privilege 15 secret 9 $9$COf3Q4xfzT.JxE$L3hvSkDv874Qrh8Hzdv/rPQjLNOjreYG2ocffHG7rls
+username root privilege 15 secret 9 $9$FfUDIPBFcs03AE$MyLIWEuiRle8p3yGflAGTcrJA6BUUh/oWtyyfoMQXSI
+username newuser80 password 0 Yu76_87AF

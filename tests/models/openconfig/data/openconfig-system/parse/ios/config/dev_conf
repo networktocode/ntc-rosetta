@@ -1,0 +1,70 @@
+version 16.11
+!
+hostname csr1000v-1
+!
+ip name-server 8.8.8.8 8.8.4.4 2001:4860:4860::8888 2001:4860:4860::8844
+no ip domain lookup recursive
+no ip domain lookup
+ip domain lookup nsap
+ip domain name cisco.com
+ip domain multicast in-addr.arpa
+ip domain recursive retry 10
+no ip domain recursive allow-soa
+!
+ip ssh time-out 60
+ip ssh authentication-retries 3
+ip ssh window-size 8192
+ip ssh rsa keypair-name ssh-key
+ip ssh break-string ~break
+ip ssh logging events
+ip ssh version 2
+ip ssh dh min size 2048
+no ip ssh rekey time
+no ip ssh rekey volume
+ip ssh server authenticate user publickey
+ip ssh server authenticate user keyboard
+ip ssh server authenticate user password
+no ip ssh server peruser session limit
+!
+ip ssh server algorithm mac hmac-sha2-256 hmac-sha2-512 hmac-sha1 hmac-sha1-96
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh server algorithm kex diffie-hellman-group-exchange-sha1 diffie-hellman-group14-sha1
+ip ssh server algorithm hostkey x509v3-ssh-rsa ssh-rsa
+ip ssh server algorithm authentication publickey keyboard password
+ip ssh server algorithm publickey x509v3-ssh-rsa ssh-rsa
+ip ssh client algorithm mac hmac-sha2-256 hmac-sha2-512 hmac-sha1 hmac-sha1-96
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm kex diffie-hellman-group-exchange-sha1 diffie-hellman-group14-sha1
+!
+ntp max-associations 100
+!
+ntp allow mode control 0
+ntp leap-handle
+ntp mindistance 1
+ntp maxdistance 8
+ntp server 2610:20:6F96:96::6 maxpoll 10 minpoll 6 version 4 burst iburst
+ntp peer 2610:20:6F15:15::27 maxpoll 10 minpoll 6 version 4 burst iburst
+ntp peer 129.6.15.28 maxpoll 10 minpoll 6 version 4 burst iburst
+ntp server 129.6.15.29 maxpoll 10 minpoll 6 version 4 burst iburst
+!
+clock timezone CST -6 0
+!
+username developer privilege 15 secret 9 $9$fhUXi6Xg438iAE$..VhXRCHiDQy3K2zmZUl9iZLbQJ9wpUtQZwQxSRESc2
+username cisco privilege 15 secret 9 $9$COf3Q4xfzT.JxE$L3hvSkDv874Qrh8Hzdv/rPQjLNOjreYG2ocffHG7rls
+username root privilege 15 secret 9 $9$FfUDIPBFcs03AE$MyLIWEuiRle8p3yGflAGTcrJA6BUUh/oWtyyfoMQXSI
+username newuser80 password 0 Yu76_87AF
+!
+tacacs-server host 192.0.0.43
+tacacs-server key 7 PLAINTEXTPASS
+!
+banner login ^
+Login banner
+^
+!
+banner motd ^
+Dummy MOTD
+Have a nice day ;)
+^
+!
+interface GigabitEthernet1/1
+  no shutdown

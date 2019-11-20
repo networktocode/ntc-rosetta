@@ -1,0 +1,21 @@
+{
+    "openconfig-system:system": {
+      "aaa": {
+        "authentication": {
+          "users": {
+            "user": [
+              {
+                "username": "developer",
+                "config": {
+                  "username": "developer",
+                  "password-hashed": "$9$fhUXi6Xg438iAE$..VhXRCHiDQy3K2zmZUl9iZLbQJ9wpUtQZwQxSRESc2",
+                  "role": "15"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+
