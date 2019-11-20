@@ -1,0 +1,20 @@
+{
+  "openconfig-system:system": {
+    "aaa": {
+      "authentication": {
+        "users": {
+          "user": [
+            {
+              "username": "user",
+              "config": {
+                "username": "user",
+                "ssh-key": "ssh-rsa some-ssh-key user@example.com",
+                "role": "super-user"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

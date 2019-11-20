@@ -1,0 +1,9 @@
+<configuration>
+  <system>
+    <login>
+      <user delete="delete">
+        <name>other</name>
+      </user>
+    </login>
+  </system>
+</configuration>

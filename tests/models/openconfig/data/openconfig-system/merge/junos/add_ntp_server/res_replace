@@ -1,0 +1,12 @@
+<configuration>
+  <system replace="replace">
+    <ntp>
+      <server>
+        <name>2610:20:6F96:96::6</name>
+      </server>
+      <server>
+        <name>129.6.15.29</name>
+      </server>
+    </ntp>
+  </system>
+</configuration>

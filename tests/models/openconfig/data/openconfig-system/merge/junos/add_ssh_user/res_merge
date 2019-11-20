@@ -1,0 +1,13 @@
+<configuration>
+  <system>
+    <login>
+      <user>
+        <name>other</name>
+        <authentication>
+          <encrypted-password>$6$Ds.gV3Ce$V10YZ/FFypUTCcUtJ8C9WIgnD6wEwsXFivPH2RrVCBs/JzcS7WYgPL.EgVlsFwSVtK1F.HBENK2UbMMj8Dfc4/</encrypted-password>
+          <class>super-user</class>
+        </authentication>
+      </user>
+    </login>
+  </system>
+</configuration>
