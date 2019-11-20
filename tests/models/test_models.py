@@ -2,6 +2,8 @@ import json
 import pathlib
 from typing import Any, Dict, List, Tuple
 
+from yangson.exceptions import InstanceValueError
+
 import ntc_rosetta
 
 import pytest
@@ -27,6 +29,40 @@ filters: Dict[str, Dict[str, List[str]]] = {
             "/openconfig-network-instance:network-instances/network-instance/name",
             "/openconfig-network-instance:network-instances/network-instance/config",
             "/openconfig-network-instance:network-instances/network-instance/vlans",
+        ],
+        "exclude": [],
+    },
+    "openconfig-system": {
+        "include": [
+            "/openconfig-system:system/clock/config",
+            "/openconfig-system:system/clock",
+            "/openconfig-system:system/dns/config",
+            "/openconfig-system:system/dns/servers/server/config",
+            "/openconfig-system:system/dns/servers/server",
+            "/openconfig-system:system/dns/servers",
+            "/openconfig-system:system/dns",
+            "/openconfig-system:system/ntp/config",
+            "/openconfig-system:system/ntp/servers/server/config",
+            "/openconfig-system:system/ntp/servers/server",
+            "/openconfig-system:system/ntp/servers",
+            "/openconfig-system:system/ntp",
+            "/openconfig-system:system/ssh-server/config",
+            "/openconfig-system:system/ssh-server",
+            "/openconfig-system:system/telnet-server/config",
+            "/openconfig-system:system/telnet-server",
+            "/openconfig-system:system/aaa/authentication/users/user/config",
+            "/openconfig-system:system/aaa/authentication/users/user",
+            "/openconfig-system:system/aaa/authentication/users",
+            "/openconfig-system:system/aaa/authentication",
+            "/openconfig-system:system/aaa/server-groups/server-group/servers/server/tacacs/config",
+            "/openconfig-system:system/aaa/server-groups/server-group/servers/server/tacacs",
+            "/openconfig-system:system/aaa/server-groups/server-group/servers/server",
+            "/openconfig-system:system/aaa/server-groups/server-group/servers",
+            "/openconfig-system:system/aaa/server-groups/server-group",
+            "/openconfig-system:system/aaa/server-groups",
+            "/openconfig-system:system/aaa",
+            "/openconfig-system:system/config",
+            "/openconfig-system:system",
         ],
         "exclude": [],
     },
@@ -84,12 +120,19 @@ class Test:
     ) -> None:
         with open(test_case_path.joinpath("data.json"), "r") as f:
             candidate = json.load(f)
-        with open(test_case_path.joinpath(f"res_{mode}"), "r") as f:
-            expected = f.read()
+        try:
+            with open(test_case_path.joinpath(f"res_{mode}"), "r") as f:
+                expected = f.read()
+        except FileNotFoundError:
+            expected = None  # type: ignore
         driver_class = ntc_rosetta.get_driver(driver, org)
         device = driver_class()
-        config = device.translate(candidate, replace=mode == "replace")
-        assert config == expected
+        if not expected:
+            with pytest.raises(InstanceValueError):
+                config = device.translate(candidate, replace=mode == "replace")
+        else:
+            config = device.translate(candidate, replace=mode == "replace")
+            assert config == expected
 
     @pytest.mark.parametrize(**get_test_cases("translate"))  # type: ignore
     def test_translate_merge(
@@ -110,12 +153,19 @@ class Test:
             candidate = json.load(f)
         with open(test_case_path.joinpath("data_running.json"), "r") as f:
             running = json.load(f)
-        with open(test_case_path.joinpath(f"res_{mode}"), "r") as f:
-            expected = f.read()
+        try:
+            with open(test_case_path.joinpath(f"res_{mode}"), "r") as f:
+                expected = f.read()
+        except FileNotFoundError:
+            expected = None  # type: ignore
         driver_class = ntc_rosetta.get_driver(driver, org)
         device = driver_class()
-        res_merge = device.merge(candidate, running, replace=mode == "replace")
-        assert res_merge == expected
+        if not expected:
+            with pytest.raises(InstanceValueError):
+                res_merge = device.merge(candidate, running, replace=mode == "replace")
+        else:
+            res_merge = device.merge(candidate, running, replace=mode == "replace")
+            assert res_merge == expected
 
     @pytest.mark.parametrize(**get_test_cases("merge"))  # type: ignore
     def test_merge_merge(
