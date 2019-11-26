@@ -6,6 +6,7 @@
         "config": {
           "name": "FastEthernet1",
           "type": "iana-if-type:ethernetCsmacd",
+	  "loopback-mode": false,
           "description": "This is Fa1",
           "enabled": false
         },
@@ -15,14 +16,16 @@
               "index": 1,
               "config": {
                 "index": 1,
-                "description": "This is Fa1.1"
+                "description": "This is Fa1.1",
+		"enabled": true
               }
             },
             {
               "index": 2,
               "config": {
                 "index": 2,
-                "description": "This is Fa1.2"
+                "description": "This is Fa1.2",
+		"enabled": true
               }
             }
           ]
@@ -33,6 +36,7 @@
         "config": {
           "name": "FastEthernet3",
           "type": "iana-if-type:ethernetCsmacd",
+	  "loopback-mode": false,
           "description": "This is Fa3",
           "enabled": true
         },
@@ -50,6 +54,7 @@
         "config": {
           "name": "FastEthernet4",
           "type": "iana-if-type:ethernetCsmacd",
+	  "loopback-mode": true,
           "enabled": false
         },
         "openconfig-if-ethernet:ethernet": {

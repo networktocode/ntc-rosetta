@@ -1,4 +1,5 @@
 interface FastEthernet1
+   mtu 9000
    description This is Fa1
    shutdown
    exit
@@ -12,26 +13,12 @@ interface FastEthernet1.2
    exit
 !
 interface FastEthernet3
+   mtu 9216
    description This is Fa3
    no shutdown
-   switchport mode access
-   switchport access vlan 10
    exit
 !
 interface FastEthernet4
-   shutdown
-   switchport mode trunk
-   switchport trunk allowed vlan 10,20
-   loopback mac
-   exit
-!
-vlan 10
-   name prod
-   no shutdown
-   exit
-!
-vlan 20
-   name dev
    shutdown
    exit
 !

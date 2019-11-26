@@ -1,0 +1,5 @@
+default interface FastEthernet1
+interface FastEthernet1
+   mtu 9000
+   exit
+!
