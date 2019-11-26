@@ -1,0 +1,8 @@
+<configuration>
+  <system>
+    <tacplus-server>
+      <name>192.168.0.43</name>
+      <secret>PLAINTEXTPASS</secret>
+    </tacplus-server>
+  </system>
+</configuration>

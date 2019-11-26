@@ -1,0 +1,134 @@
+{
+  "openconfig-system:system": {
+    "clock": {
+      "config": {
+        "timezone-name": "America/Winnipeg"
+      }
+    },
+    "dns": {
+      "servers": {
+        "server": [
+          {
+            "address": "8.8.8.8",
+            "config": {
+              "address": "8.8.8.8",
+              "port": 53
+            }
+          },
+          {
+            "address": "8.8.4.4",
+            "config": {
+              "address": "8.8.4.4",
+              "port": 53
+            }
+          },
+          {
+            "address": "2606:4700:4700::1111",
+            "config": {
+              "address": "2606:4700:4700::1111",
+              "port": 53
+            }
+          },
+          {
+            "address": "2606:4700:4700::1001",
+            "config": {
+              "address": "2606:4700:4700::1001",
+              "port": 53
+            }
+          }
+        ]
+      }
+    },
+    "ntp": {
+      "servers": {
+        "server": [
+          {
+            "address": "129.6.15.28",
+            "config": {
+              "address": "129.6.15.28"
+            }
+          },
+          {
+            "address": "129.6.15.29",
+            "config": {
+              "address": "129.6.15.29"
+            }
+          },
+          {
+            "address": "129.6.15.30",
+            "config": {
+              "address": "129.6.15.30"
+            }
+          },
+          {
+            "address": "2610:20:6f15:15::27",
+            "config": {
+              "address": "2610:20:6f15:15::27"
+            }
+          }
+        ]
+      }
+    },
+    "ssh-server": {
+      "config": {
+        "enable": true,
+        "protocol-version": "V2"
+      }
+    },
+    "telnet-server": {
+      "config": {
+        "enable": false
+      }
+    },
+    "aaa": {
+      "authentication": {
+        "users": {
+          "user": [
+            {
+              "username": "user",
+              "config": {
+                "username": "user",
+                "ssh-key": "ssh-rsa some-ssh-key user@example.com",
+                "role": "super-user"
+              }
+            },
+            {
+              "username": "other",
+              "config": {
+                "username": "other",
+                "password-hashed": "$6$Ds.gV3Ce$V10YZ/FFypUTCcUtJ8C9WIgnD6wEwsXFivPH2RrVCBs/JzcS7WYgPL.EgVlsFwSVtK1F.HBENK2UbMMj8Dfc4/",
+                "role": "super-user"
+              }
+            }
+          ]
+        }
+      },
+      "server-groups": {
+        "server-group": [
+          {
+            "name": "tacacs",
+            "config": {
+              "name": "tacacs",
+              "type": "openconfig-aaa:TACACS"
+            },
+            "servers": {
+              "server": [
+                {
+                  "address": "192.168.0.42",
+                  "config": {
+                    "address": "192.168.0.42"
+                  },
+                  "tacacs": {
+                    "config": {
+                      "secret-key": "$9$kq5z3nCuBE/CLNb2GU/Ctp0IEcy"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

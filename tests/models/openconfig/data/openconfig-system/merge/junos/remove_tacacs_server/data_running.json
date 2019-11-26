@@ -1,0 +1,43 @@
+{
+  "openconfig-system:system": {
+    "aaa": {
+      "server-groups": {
+        "server-group": [
+          {
+            "name": "tacacs",
+            "config": {
+              "name": "tacacs",
+              "type": "openconfig-aaa:TACACS"
+            },
+            "servers": {
+              "server": [
+                {
+                  "address": "192.168.0.42",
+                  "config": {
+                    "address": "192.168.0.42"
+                  },
+                  "tacacs": {
+                    "config": {
+                      "secret-key": "PLAINTEXTPASS"
+                    }
+                  }
+                },
+                {
+                  "address": "192.168.0.43",
+                  "config": {
+                    "address": "192.168.0.43"
+                  },
+                  "tacacs": {
+                    "config": {
+                      "secret-key": "PLAINTEXTPASS"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<configuration>
+  <system>
+    <tacplus-server delete="delete">
+      <name>192.168.0.43</name>
+    </tacplus-server>
+  </system>
+</configuration>

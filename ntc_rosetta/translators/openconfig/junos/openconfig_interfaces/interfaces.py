@@ -4,6 +4,8 @@ from lxml import etree
 
 from ntc_rosetta.helpers import xml_helpers as xh
 from ntc_rosetta.translators.openconfig.junos.openconfig_if_ethernet import ethernet
+from ntc_rosetta.translators.openconfig.junos.openconfig_if_ip.ipv4 import Ipv4
+from ntc_rosetta.translators.openconfig.junos.openconfig_if_ip.ipv6 import Ipv6
 
 from yangify.translator import Translator, TranslatorData, unneeded
 
@@ -38,6 +40,8 @@ class Subinterface(Translator):
     index = unneeded
 
     config = SubinterfaceConfig
+    ipv4 = Ipv4
+    ipv6 = Ipv6
 
 
 class Subinterfaces(Translator):
