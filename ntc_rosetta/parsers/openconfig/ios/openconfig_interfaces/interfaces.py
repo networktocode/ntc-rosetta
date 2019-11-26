@@ -1,3 +1,4 @@
+import re
 from typing import Any, Dict, Iterator, Optional, Tuple, cast
 
 from ntc_rosetta.helpers import json_helpers as jh
@@ -62,8 +63,9 @@ class InterfaceConfig(Parser):
             return True
 
     def loopback_mode(self) -> bool:
+        is_loop = re.match("loopback", self.yy.key, re.IGNORECASE)
         loopback_mode = jh.query("loopback", self.yy.native)
-        if loopback_mode:
+        if loopback_mode or is_loop:
             return True
         else:
             return False

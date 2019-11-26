@@ -1,3 +1,4 @@
+import re
 from typing import Any, Dict, Optional
 
 from ntc_rosetta.helpers import json_helpers as jh
@@ -87,6 +88,14 @@ class InterfaceConfig(Translator):
             self.yy.result.add_command(f"   mtu {value}")
         else:
             self.yy.result.add_command(f"   no mtu")
+
+    def loopback_mode(self, value: Optional[bool]) -> None:
+        """set the loopback mode if the interface isn't a loopback"""
+        is_loop = re.match("loopback", self.yy.key, re.IGNORECASE)
+        if value and not is_loop:
+            self.yy.result.add_command(f"   loopback mac")
+        elif not is_loop:
+            self.yy.result.add_command(f"   no loopback mac")
 
 
 class Interface(Translator):
