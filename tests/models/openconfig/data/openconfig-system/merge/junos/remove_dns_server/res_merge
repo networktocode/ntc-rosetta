@@ -1,0 +1,7 @@
+<configuration>
+  <system>
+    <name-server delete="delete">
+      <name>8.8.4.4</name>
+    </name-server>
+  </system>
+</configuration>

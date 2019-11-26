@@ -1,4 +1,67 @@
 <configuration>
+        <system>
+            <host-name>junos-host</host-name>
+            <name-server>
+                <name>8.8.8.8</name>
+            </name-server>
+            <name-server>
+                <name>8.8.4.4</name>
+            </name-server>
+            <name-server>
+                <name>2606:4700:4700::1111</name>
+            </name-server>
+            <name-server>
+                <name>2606:4700:4700::1001</name>
+            </name-server>
+            <domain-name>packet.net</domain-name>
+            <tacplus-server>
+                <name>192.168.0.42</name>
+                <secret>$9$kq5z3nCuBE/CLNb2GU/Ctp0IEcy</secret>
+            </tacplus-server>
+            <services>
+                <ssh>
+                    <protocol-version>v2</protocol-version>
+                </ssh>
+            </services>
+            <login>
+                <user>
+                    <name>user</name>
+                    <class>super-user</class>
+                    <authentication>
+                        <ssh-rsa>
+                            <name>ssh-rsa some-ssh-key user@example.com</name>
+                        </ssh-rsa>
+                    </authentication>
+                </user>
+                <user>
+                    <name>other</name>
+                    <class>super-user</class>
+                    <authentication>
+                        <encrypted-password>$6$Ds.gV3Ce$V10YZ/FFypUTCcUtJ8C9WIgnD6wEwsXFivPH2RrVCBs/JzcS7WYgPL.EgVlsFwSVtK1F.HBENK2UbMMj8Dfc4/</encrypted-password>
+                    </authentication>
+                </user>
+                <announcement>foo\nbar\nbang</announcement>
+                <message>A bunch of \nmessage\ntest</message>
+            </login>
+            <commit>
+                <synchronize/>
+            </commit>
+            <ntp>
+                <server>
+                    <name>129.6.15.28</name>
+                </server>
+                <server>
+                    <name>129.6.15.29</name>
+                </server>
+                <server>
+                    <name>129.6.15.30</name>
+                </server>
+                <server>
+                    <name>2610:20:6f15:15::27</name>
+                </server>
+            </ntp>
+            <time-zone>America/Winnipeg</time-zone>
+        </system>
         <interfaces>
             <interface>
                 <name>xe-0/0/1</name>

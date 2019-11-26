@@ -1,0 +1,15 @@
+<configuration>
+  <system replace="replace">
+    <login>
+      <user>
+        <name>user</name>
+        <authentication>
+          <ssh-rsa>
+            <name>ssh-rsa some-ssh-key user@example.com</name>
+            <class>super-user</class>
+          </ssh-rsa>
+        </authentication>
+      </user>
+    </login>
+  </system>
+</configuration>

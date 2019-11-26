@@ -1,0 +1,10 @@
+<configuration>
+  <system replace="replace">
+    <name-server>
+      <name>8.8.8.8</name>
+    </name-server>
+    <name-server>
+      <name>8.8.4.4</name>
+    </name-server>
+  </system>
+</configuration>

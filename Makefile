@@ -34,7 +34,7 @@ enter-container:
 .PHONY: pytest
 pytest:
 	${DOCKER} \
-		pytest --cov=ntc_rosetta --cov-report=term-missing -vs ${ARGS}
+		pytest --cov=ntc_rosetta --cov-report=term-missing -vvvs ${ARGS}
 
 .PHONY: black
 black:
