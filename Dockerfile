@@ -4,8 +4,7 @@ FROM python:${PYTHON}-stretch
 
 RUN apt-get update && apt-get install -y pandoc
 
-RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python && \
-    /root/.poetry/bin/poetry config settings.virtualenvs.create false && ln -sf /root/.poetry/bin/poetry /usr/local/bin/poetry
+RUN pip install poetry==1.0.0 && poetry config virtualenvs.create false && pip install -U "pip<19"
 
 ADD poetry.lock /tmp
 ADD pyproject.toml /tmp
