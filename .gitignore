@@ -1,6 +1,7 @@
 *.egg-info
 *.pyc
 __pycache__
+.mypy_cache
 .coverage
 _build
 .ipynb_checkpoints
