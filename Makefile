@@ -2,7 +2,7 @@ ifeq (${PYTHON}, )
 override PYTHON=3.6
 endif
 
-DOCKER=docker run -p 8888:8888 -v ${PWD}:/ntc_rosetta ntc_rosetta-${PYTHON}:latest
+DOCKER=docker run -it --rm -p 8888:8888 -v ${PWD}:/ntc_rosetta ntc_rosetta-${PYTHON}:latest
 
 YANG_VENDORED_BASE_PATH=ntc_rosetta/yang
 
