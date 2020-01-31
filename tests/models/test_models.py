@@ -1,10 +1,8 @@
 import json
 import pathlib
-from typing import Any, Dict, List, NamedTuple, Tuple
+from typing import Dict, List, NamedTuple
 
 import ntc_rosetta
-
-import pytest
 
 Data = NamedTuple(
     "Data",
@@ -77,87 +75,63 @@ filters: Dict[str, Dict[str, List[str]]] = {
 }
 
 
-def valid_dir(path: pathlib.Path) -> bool:
-    if not path.is_dir() or path.name == "__pycache__":
-        return False
-    return True
+def parser(org: str, model: str, driver: str, test_case_path: pathlib.Path) -> None:
+    """Run parser test on models with given data.
+
+    The files
+    - `dev_conf`
+    - `result.json`
+    **must** be present in the test case path.
+
+    Args:
+        org: YANG organization
+        model: YANG model to parse
+        driver: ntc-rosetta driver
+        test_case_path: parsed __file__ attribute of caller
+
+    """
+    with open(test_case_path.joinpath("dev_conf"), "r") as f:
+        dev_conf = f.read()
+    with open(test_case_path.joinpath("result.json"), "r") as f:
+        structured = json.load(f)
+
+    driver_class = ntc_rosetta.get_driver(driver, org)
+    device = driver_class()
+
+    parsed_obj = device.parse(
+        native={"dev_conf": dev_conf},
+        validate=False,
+        include=filters[model.replace("_", "-")]["include"],
+        exclude=filters[model.replace("_", "-")]["exclude"],
+    )
+    #  print(json.dumps(parsed_obj.raw_value()))
+    assert parsed_obj.raw_value() == structured, json.dumps(parsed_obj.raw_value())
 
 
-def get_test_cases(test: str) -> Dict[str, Any]:
-    base = pathlib.Path(__file__).parent
+def translate(org: str, driver: str, test_case_path: pathlib.Path, mode: str) -> None:
+    """Run merge test on models with given data.
 
-    test_cases: List[Tuple[str, str, str, pathlib.Path]] = []
-    ids: List[str] = []
-    for model_path in base.iterdir():
-        org = model_path.name
-        if not valid_dir(model_path):
-            continue
-        for data_path in model_path.joinpath(f"data").iterdir():
-            if not valid_dir(data_path):
-                continue
-            model = data_path.name
-            for driver_path in sorted(data_path.joinpath(test).iterdir()):
-                if not valid_dir(driver_path):
-                    continue
-                driver = driver_path.name
-                for test_case_path in sorted(driver_path.iterdir()):
-                    if not valid_dir(test_case_path):
-                        continue
-                    test_case = test_case_path.name
-                    ids.append(f"{model}_{driver}_{test_case}")
-                    test_cases.append((org, model, driver, test_case_path))
-    return {
-        "argnames": "org,model,driver,test_case_path",
-        "argvalues": test_cases,
-        "ids": ids,
-    }
+    The files
+    - `data.json`
+    - `data_running.json`
+    - `res_{{ mode }}`
+    **must** be present in the test case path.
 
+    Args:
+        org: YANG organization
+        driver: ntc-rosetta driver
+        test_case_path: parsed __file__ attribute of caller
+        mode: options of {"replace", "merge"}
 
-class Test:
-    @pytest.mark.parametrize(**get_test_cases("parse"))  # type: ignore
-    def test_parser(
-        self, org: str, model: str, driver: str, test_case_path: pathlib.Path
-    ) -> None:
-        with open(test_case_path.joinpath("dev_conf"), "r") as f:
-            dev_conf = f.read()
-        with open(test_case_path.joinpath("result.json"), "r") as f:
-            structured = json.load(f)
-
-        driver_class = ntc_rosetta.get_driver(driver, org)
-        device = driver_class()
-
-        parsed_obj = device.parse(
-            native={"dev_conf": dev_conf},
-            validate=False,
-            include=filters[model.replace("_", "-")]["include"],
-            exclude=filters[model.replace("_", "-")]["exclude"],
-        )
-        #  print(json.dumps(parsed_obj.raw_value()))
-        assert parsed_obj.raw_value() == structured, json.dumps(parsed_obj.raw_value())
-
-    def _test_translate(
-        self, org: str, driver: str, test_case_path: pathlib.Path, mode: str
-    ) -> None:
-        with open(test_case_path.joinpath("data.json"), "r") as f:
-            candidate = json.load(f)
-        with open(test_case_path.joinpath(f"res_{mode}"), "r") as f:
-            expected = f.read()
-        driver_class = ntc_rosetta.get_driver(driver, org)
-        device = driver_class()
-        config = device.translate(candidate, replace=mode == "replace")
-        assert config == expected
-
-    @pytest.mark.parametrize(**get_test_cases("translate"))  # type: ignore
-    def test_translate_merge(
-        self, org: str, model: str, driver: str, test_case_path: pathlib.Path
-    ) -> None:
-        self._test_translate(org, driver, test_case_path, "merge")
-
-    @pytest.mark.parametrize(**get_test_cases("translate"))  # type: ignore
-    def test_translate_replace(
-        self, org: str, model: str, driver: str, test_case_path: pathlib.Path
-    ) -> None:
-        self._test_translate(org, driver, test_case_path, "replace")
+    """
+    with open(test_case_path.joinpath("data.json"), "r") as f:
+        candidate = json.load(f)
+    with open(test_case_path.joinpath(f"res_{mode}"), "r") as f:
+        expected = f.read()
+    driver_class = ntc_rosetta.get_driver(driver, org)
+    device = driver_class()
+    config = device.translate(candidate, replace=mode == "replace")
+    assert config == expected
 
 
 def parse_path(pathname: str) -> Data:
@@ -181,6 +155,12 @@ def parse_path(pathname: str) -> Data:
 
 def merge(org: str, driver: str, test_case_path: pathlib.Path, mode: str) -> None:
     """Run merge test on models with given data.
+
+    The files
+    - `data_candidate.json`
+    - `data_running.json`
+    - `res_{{ mode }}`
+    **must** be present in the test case path.
 
     Args:
         org: YANG organization
