@@ -23,15 +23,26 @@ Errors/Warning message codes:
 
 
 @click.command("lint", help=LINT_HELP)
-@click.option("-i", "--ignore", multiple=True, help="ignore error/warning codes")
+@click.option(
+    "-i",
+    "--ignore",
+    multiple=True,
+    help="ignore error/warning codes, e.g. specify multiple -i to ignore more than one code",
+)
 @click.option(
     "-m",
     "--model",
     default="openconfig",
     type=click.Choice(["openconfig", "ntc"]),
-    help="model to lint",
+    help="model to lint - default: openconfig",
 )
-@click.option("-j/-t", "--json/--text", "to_json", default=False, help="output format")
+@click.option(
+    "-j/-t",
+    "--json/--text",
+    "to_json",
+    default=False,
+    help="output format - default: text",
+)
 @click.argument("filepaths", nargs=-1)
 @click.pass_context
 def lint(
