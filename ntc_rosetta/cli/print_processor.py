@@ -9,7 +9,13 @@ from yangify import linter
 
 
 @click.command("print-parser")
-@click.option("-j/-t", "--json/--text", "to_json", default=False, help="output format - default: text")
+@click.option(
+    "-j/-t",
+    "--json/--text",
+    "to_json",
+    default=False,
+    help="output format - default: text",
+)
 @click.argument("driver")
 @click.option(
     "-m",
