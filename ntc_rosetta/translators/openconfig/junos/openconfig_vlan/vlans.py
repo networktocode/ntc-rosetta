@@ -7,7 +7,7 @@ from yangify.translator import Translator, TranslatorData, unneeded
 
 class VlanConfig(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-network-instance:network-instances/network-instance/vlans/vlan/config"
+        path = "/openconfig-network-instance:network-instances/network-instance/vlans/vlan/config"
 
     vlan_id = unneeded
 
@@ -49,7 +49,7 @@ class Vlan(Translator):
 
 class Vlans(Translator):
     class Yangify(TranslatorData):
-        path = "openconfig-network-instance:network-instances/network-instance/vlans"
+        path = "/openconfig-network-instance:network-instances/network-instance/vlans"
 
         def pre_process(self) -> None:
             self.result = etree.SubElement(self.root_result, "vlans")

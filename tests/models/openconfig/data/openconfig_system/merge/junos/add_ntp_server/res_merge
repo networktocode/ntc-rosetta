@@ -1,0 +1,9 @@
+<configuration>
+  <system>
+    <ntp>
+      <server>
+        <name>129.6.15.29</name>
+      </server>
+    </ntp>
+  </system>
+</configuration>

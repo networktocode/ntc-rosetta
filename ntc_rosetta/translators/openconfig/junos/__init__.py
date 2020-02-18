@@ -2,6 +2,7 @@ from ntc_rosetta.translators.openconfig.junos.openconfig_interfaces import inter
 from ntc_rosetta.translators.openconfig.junos.openconfig_network_instance import (
     network_instances,
 )
+from ntc_rosetta.translators.openconfig.junos.openconfig_system.system import System
 
 from lxml import etree
 
@@ -21,3 +22,4 @@ class JunosTranslator(translator.RootTranslator):
 
     interfaces = interfaces.Interfaces
     network_instances = network_instances.NetworkInstances
+    system = System

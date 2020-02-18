@@ -1,0 +1,24 @@
+interface FastEthernet1
+   mtu 9000
+   description This is Fa1
+   shutdown
+   exit
+!
+interface FastEthernet1.1
+   description This is Fa1.1
+   exit
+!
+interface FastEthernet1.2
+   description This is Fa1.2
+   exit
+!
+interface FastEthernet3
+   mtu 9216
+   description This is Fa3
+   no shutdown
+   exit
+!
+interface FastEthernet4
+   shutdown
+   exit
+!

@@ -6,6 +6,7 @@ from ntc_rosetta.parsers.openconfig.junos.openconfig_interfaces.interfaces impor
 from ntc_rosetta.parsers.openconfig.junos.openconfig_network_instance.network_instances import (
     NetworkInstances,
 )
+from ntc_rosetta.parsers.openconfig.junos.openconfig_system.system import System
 
 from yangify import parser
 
@@ -25,3 +26,4 @@ class JunosParser(parser.RootParser):
 
     interfaces = Interfaces
     network_instances = NetworkInstances
+    system = System
