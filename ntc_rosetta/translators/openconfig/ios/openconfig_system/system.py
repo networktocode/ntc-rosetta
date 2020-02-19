@@ -143,16 +143,17 @@ class AaaAuthenticationUserConfig(Translator):
             self.result.add_command(
                 f"username {self.extra['username']}{role_str} {password_str or password_hash_str}"
             )
-            if ssh_key:
-                """
-                ip ssh pubkey-chain
-                  username test
-                    key-string
-                      some-rsa-ssh-key-string
-                    exit
-                  exit
-                """
-                raise NotImplementedError
+            # TODO: implement ssh_key
+            # if ssh_key:
+            #     """
+            #     ip ssh pubkey-chain
+            #       username test
+            #         key-string
+            #           some-rsa-ssh-key-string
+            #         exit
+            #       exit
+            #     """
+            #     raise NotImplementedError
 
     def username(self, value: str) -> None:
         self.yy.extra["username"] = value
