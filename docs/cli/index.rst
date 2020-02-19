@@ -52,9 +52,41 @@ ntc_rosetta lint will lint the parsers and translators and offers several option
 
      --help                        Show this message and exit.
 
-It will define the FILEPATHS as the current working directory. If we're in the root of **ntc-rosetta** then we will need to either move to the **ntc_rosetta** folder or specify **ntc_rosetta** when executing the command::
+It will define the FILEPATHS as the current working directory if omitted when running the command. If we're in the root of project of **ntc-rosetta** (note the dash) then we will need to either move into the **ntc_rosetta** folder or specify **ntc_rosetta** when executing the command.
 
-    $ ntc_rosetta git:(docs) ✗ ntc_rosetta lint ntc_rosetta
+Here we will execute the command from the root of the project (note how we specify **ntc_rosetta** after the lint statement)::
+
+    $ pwd
+    $ /home/user/ntc-rosetta/
+    $ ntc-rosetta git:(docs) ✗ ntc_rosetta lint ntc_rosetta
+    ntc_rosetta/parsers/ntc/ios/ntc_vlan/vlan.py:39:E101:Yangify.path couldn't be found in model: /ntc-vlan:vlan
+    ntc_rosetta/parsers/ntc/ios/ntc_vlan/vlan.py:32:E101:Yangify.path couldn't be found in model: /ntc-vlan:vlan/config
+    ntc_rosetta/parsers/ntc/ios/ntc_vlan/vlan.py:8:E101:Yangify.path couldn't be found in model: /ntc-vlan:vlan/config/vlans
+    ntc_rosetta/parsers/ntc/ios/ntc_vlan/vlan.py:39:E101:Yangify.path couldn't be found in model: /ntc-vlan:vlan
+    ntc_rosetta/parsers/openconfig/ios/openconfig_if_ethernet/ethernet.py:6:W001:doesn't implement config
+    ntc_rosetta/parsers/openconfig/ios/openconfig_if_ethernet/ethernet.py:6:W001:doesn't implement state
+    ntc_rosetta/parsers/openconfig/ios/openconfig_interfaces/interfaces.py:91:W001:doesn't implement state
+    ntc_rosetta/parsers/openconfig/ios/openconfig_interfaces/interfaces.py:91:W001:doesn't implement hold-time
+    ntc_rosetta/parsers/openconfig/ios/openconfig_interfaces/interfaces.py:51:W001:doesn't implement tpid
+    ntc_rosetta/parsers/openconfig/ios/openconfig_interfaces/interfaces.py:28:W001:doesn't implement state
+    ntc_rosetta/translators/ntc/ios/ntc_vlan/vlan.py:48:E101:Yangify.path couldn't be found in model: /ntc-vlan:vlan
+    ntc_rosetta/translators/openconfig/ios/openconfig_if_ethernet/ethernet.py:6:W001:doesn't implement config
+    ntc_rosetta/translators/openconfig/ios/openconfig_if_ethernet/ethernet.py:6:W001:doesn't implement state
+    ntc_rosetta/translators/openconfig/ios/openconfig_interfaces/interfaces.py:101:W001:doesn't implement state
+    ntc_rosetta/translators/openconfig/ios/openconfig_interfaces/interfaces.py:101:W001:doesn't implement hold-time
+    ntc_rosetta/translators/openconfig/ios/openconfig_interfaces/interfaces.py:67:W001:doesn't implement tpid
+    ntc_rosetta/translators/openconfig/ios/openconfig_interfaces/interfaces.py:29:W001:doesn't implement state
+    ntc_rosetta/translators/openconfig/ios/openconfig_interfaces/interfaces.py:29:W001:doesn't implement vlan
+    ntc_rosetta/translators/openconfig/ios/openconfig_interfaces/interfaces.py:29:W001:doesn't implement ipv4
+    ntc_rosetta/translators/openconfig/ios/openconfig_interfaces/interfaces.py:29:W001:doesn't implement ipv6
+    <omitted for brevity>
+
+
+Here we will execute the command from the **ntc_rosetta** folder within the project and we omit **ntc_rosetta** since we're already within that folder::
+
+    $ pwd
+    $ /home/user/ntc-rosetta/ntc_rosetta
+    $ ntc_rosetta git:(docs) ✗ ntc_rosetta lint
     ntc_rosetta/parsers/ntc/ios/ntc_vlan/vlan.py:39:E101:Yangify.path couldn't be found in model: /ntc-vlan:vlan
     ntc_rosetta/parsers/ntc/ios/ntc_vlan/vlan.py:32:E101:Yangify.path couldn't be found in model: /ntc-vlan:vlan/config
     ntc_rosetta/parsers/ntc/ios/ntc_vlan/vlan.py:8:E101:Yangify.path couldn't be found in model: /ntc-vlan:vlan/config/vlans
@@ -79,7 +111,7 @@ It will define the FILEPATHS as the current working directory. If we're in the r
 
 As you can see it will lint both parsers and translators that live within the NTC Rosetta project. If we'd like to ignore errors, we can either specify a single -i CODE or several -i to ignore those errors and warnings::
 
-    $ ntc_rosetta git:(docs) ✗ ntc_rosetta lint ntc_rosetta -i E101
+    $ ntc-rosetta git:(docs) ✗ ntc_rosetta lint ntc_rosetta -i E101
     ntc_rosetta/parsers/openconfig/ios/openconfig_if_ethernet/ethernet.py:6:W001:doesn't implement config
     ntc_rosetta/parsers/openconfig/ios/openconfig_if_ethernet/ethernet.py:6:W001:doesn't implement state
     ntc_rosetta/parsers/openconfig/ios/openconfig_interfaces/interfaces.py:91:W001:doesn't implement state
