@@ -29,7 +29,7 @@ ntc_rosetta leverages [yangify](https://github.com/networktocode/yangify) to imp
 #### Step 1
 
 Clone the repository:
-`$ https://github.com/networktocode/ntc-rosetta.git`
+`$ git clone https://github.com/networktocode/ntc-rosetta.git`
 
 #### Step 2
 
