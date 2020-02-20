@@ -6,6 +6,53 @@ ntc_rosetta leverages [yangify](https://github.com/networktocode/yangify) to imp
 2. Transform data structures that conform to YANG models into network device's native configuration/data structures
 3. Merge configurations
 
+## Installing NTC Rosetta
+
+### Pip Install
+
+`pip install ntc-rosetta`
+
+### Install From Source
+
+- Clone ntc-rosetta (`git clone https://github.com/networktocode/ntc-rosetta.git`)
+- cd into project root (`cd ntc-rosetta`)
+- `pip install poetry`
+- `poetry install`
+
+## Ways to get started with NTC Rosetta
+
+- Start Executing Jupyter Notebooks
+- [Read the Docs](https://ntc-rosetta.readthedocs.io/en/latest/index.html)
+
+### Start Executing Jupyter Notebooks
+
+#### Step 1
+
+Clone the repository:
+`$ git clone https://github.com/networktocode/ntc-rosetta.git`
+
+#### Step 2
+
+Change directory into `ntc-rosetta`:
+`$ cd ntc-rosetta`
+
+#### Step 3
+
+Build the containers:
+`$ make build_test_containers`
+
+#### Step 4
+
+Start a container so you can run the Jupyter notebooks:
+`$ make jupyter`
+
+#### Step 5
+
+Launch a browser and navigate to the following URL:
+`http://127.0.0.1:8888/tree/docs/tutorials`
+
+The same notebooks can be viewed without being interactive in the NTC Rosetta Read the Docs.
+
 ## Parsing
 
     >>> from ntc_rosetta import get_driver
