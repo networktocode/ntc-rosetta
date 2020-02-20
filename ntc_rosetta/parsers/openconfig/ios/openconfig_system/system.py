@@ -53,7 +53,7 @@ class DnsServer(Parser):
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
             dns = jh.query('ip."name-server"."#text"', self.native) or ""
-            for ns in dns.split(' '):
+            for ns in dns.split(" "):
                 yield ns, {}
 
     def address(self) -> str:
