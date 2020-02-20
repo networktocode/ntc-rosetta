@@ -22,7 +22,7 @@ class DnsServer(Translator):
         path = "/openconfig-system:system/dns/servers/server"
 
         def pre_process_list(self) -> None:
-            if self.to_remove and not self.replace:
+            if self.to_remove:
                 for element in self.to_remove:
                     self.result.add_command(f"no ip name-server {element['address']}")
 
