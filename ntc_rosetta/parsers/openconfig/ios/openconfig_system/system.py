@@ -46,20 +46,18 @@ class DnsServerConfig(Parser):
 
 
 class DnsServer(Parser):
+    config = DnsServerConfig
+
     class Yangify(ParserData):
         path = "/openconfig-system:system/dns/servers/server"
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
-            dns = jh.query('ip."name-server"', self.native) or {}
-            for k, v in dns.items():
-                if k == "#text":
-                    continue
-                yield k, v
+            dns = jh.query('ip."name-server"."#text"', self.native) or ""
+            for ns in dns.split(' '):
+                yield ns, {}
 
     def address(self) -> str:
         return str(self.yy.key)
-
-    config = DnsServerConfig
 
 
 class DnsServers(Parser):
