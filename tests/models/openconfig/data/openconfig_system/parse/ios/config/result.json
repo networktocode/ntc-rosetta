@@ -1,7 +1,8 @@
 {
   "openconfig-system:system": {
     "config": {
-      "hostname": "csr1000v-1"
+      "hostname": "csr1000v-1",
+      "domain-name": "cisco.com"
     },
     "clock": {
       "config": {

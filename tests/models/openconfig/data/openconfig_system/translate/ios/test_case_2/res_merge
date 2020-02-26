@@ -1,4 +1,5 @@
 hostname csr1000v-1
+clock timezone CST -6 0
 ip name-server 8.8.8.8
 ntp server 2610:20:6F96:96::6
 ip ssh version 2
