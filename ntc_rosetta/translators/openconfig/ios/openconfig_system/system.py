@@ -1,8 +1,10 @@
 import re
 
+from ntc_rosetta.helpers.ios import HASH_MAP
+
 from yangify.translator import Translator, TranslatorData
 
-from yangson.exceptions import InstanceValueError
+from yangson.exceptions import InstanceValueError, UnexpectedInput
 
 
 class DnsConfig(Translator):
@@ -14,20 +16,27 @@ class DnsServerConfig(Translator):
     class Yangify(TranslatorData):
         path = "/openconfig-system:system/dns/servers/server/config"
 
+    def address(self, value: str):
+        self.yy.extra["dns_servers"].append(value)
+
 
 class DnsServer(Translator):
-    config = DnsServerConfig
-
     class Yangify(TranslatorData):
         path = "/openconfig-system:system/dns/servers/server"
 
         def pre_process_list(self) -> None:
+            self.extra = {"dns_servers": []}
             if self.to_remove:
                 for element in self.to_remove:
                     self.result.add_command(f"no ip name-server {element['address']}")
 
-    def address(self, value: str):
-        self.yy.result.add_command(f"ip name-server {value}")
+        def post_process_list(self):
+            if self.extra["dns_servers"]:
+                self.result.add_command(
+                    f"ip name-server {' '.join(self.extra['dns_servers'])}"
+                )
+
+    config = DnsServerConfig
 
 
 class DnsServers(Translator):
@@ -35,9 +44,6 @@ class DnsServers(Translator):
 
     class Yangify(TranslatorData):
         path = "/openconfig-system:system/dns/servers"
-
-        def pre_process(self) -> None:
-            pass
 
 
 class Dns(Translator):
@@ -136,7 +142,10 @@ class AaaAuthenticationUserConfig(Translator):
             match = re.match(r"^\$(\d).*", password_hash)
             password_hash_str = ""
             if match:
-                hash_type = match.groups()[0]
+                hash_type_str = match.groups()[0]
+                hash_type = HASH_MAP.get(hash_type_str)
+                if not hash_type:
+                    raise UnexpectedInput("Unsupported hash type")
                 password_hash_str = f"secret {hash_type} {password_hash}"
             ssh_key = self.extra.get("ssh_key")
             ssh_key_str = f"ssh_key {ssh_key}" if ssh_key else ""  # noqa
