@@ -1,4 +1,4 @@
-from typing import Any, Dict, Iterator, Tuple
+from typing import Any, Dict, Iterator, Optional, Tuple
 
 from ntc_rosetta.helpers import json_helpers as jh
 
@@ -274,12 +274,13 @@ class SystemConfig(Parser):
         else:
             return None
 
-    def domain_name(self) -> str:
+    def domain_name(self) -> Optional[str]:
+        # Cisco has used domain-name with and without a dash
         v = jh.query('ip."domain-name"."#text"', self.yy.native)
-        if v is not None:
+        if not v:
+            v = jh.query('ip.domain.name."#text"', self.yy.native)
+        if v:
             return str(v)
-        else:
-            return None
 
     def login_banner(self) -> str:
         # TODO
@@ -290,6 +291,23 @@ class SystemConfig(Parser):
         return None
 
 
+class ClockConfig(Parser):
+    class Yangify(ParserData):
+        path = "/openconfig-system:system/clock/config"
+
+    def timezone_name(self) -> str:
+        v = jh.query('clock.timezone."#text"', self.yy.native)
+        if v:
+            return str(v)
+
+
+class Clock(Parser):
+    class Yangify(ParserData):
+        path = "/openconfig-system:system/clock"
+
+    config = ClockConfig
+
+
 class System(Parser):
     config = SystemConfig
     clock = Clock
@@ -298,6 +316,7 @@ class System(Parser):
     ssh_server = SshServer
     telnet_server = TelnetServer
     aaa = Aaa
+    clock = Clock
 
     class Yangify(ParserData):
         path = "/openconfig-system:system"

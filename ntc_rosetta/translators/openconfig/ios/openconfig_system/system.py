@@ -221,6 +221,22 @@ class SystemConfig(Translator):
         self.yy.result.add_command(f"hostname {value}")
 
 
+class ClockConfig(Translator):
+    class Yangify(TranslatorData):
+        path = "/openconfig-system:system/clock/config"
+
+    def timezone_name(self, value: str) -> None:
+        self.yy.result.add_command(f"clock timezone {value}")
+
+
+
+class Clock(Translator):
+    class Yangify(TranslatorData):
+        path = "/openconfig-system:system/clock"
+
+    config = ClockConfig
+
+
 class System(Translator):
     class Yangify(TranslatorData):
         path = "/openconfig-system:system"
@@ -236,3 +252,4 @@ class System(Translator):
     aaa = Aaa
     ntp = Ntp
     dns = Dns
+    clock = Clock
