@@ -15,7 +15,7 @@ python = "^3.6"
 jmespath = "^0.9.3"
 lxml = "^4.3"
 click = "^7.0"
-yangify = "^0.1.1"
+yangify = "^0.1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.2"
