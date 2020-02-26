@@ -1,10 +1,10 @@
 hostname csr1000v-1
-ip name-server 8.8.8.8
+ip name-server 8.8.8.8 8.8.4.4
 ntp server 2610:20:6F96:96::6
 ntp server 129.6.15.29
 ip ssh version 2
 ip ssh time-out 60
-username developer privilege 15 secret 9 $9$fhUXi6Xg438iAE$..VhXRCHiDQy3K2zmZUl9iZLbQJ9wpUtQZwQxSRESc2
-username cisco privilege 15 secret 9 $9$COf3Q4xfzT.JxE$L3hvSkDv874Qrh8Hzdv/rPQjLNOjreYG2ocffHG7rls
+username developer privilege 15 secret 5 $1$pdQG$blOvq4Ey0SJCv3n001vnj.
+username cisco privilege 15 secret 8 $8$FiJQlYEnyjCvkk$GkMYqqmLNP2YNoAFBcod4Tg7/Sy6e58Q3a8umokmlJI
 username root privilege 15 secret 9 $9$FfUDIPBFcs03AE$MyLIWEuiRle8p3yGflAGTcrJA6BUUh/oWtyyfoMQXSI
 username newuser80 password 0 Yu76_87AF
