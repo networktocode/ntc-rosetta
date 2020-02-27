@@ -1,0 +1,9 @@
+hostname csr1000v-1
+clock timezone CST -6 0
+ip name-server 8.8.8.8
+ntp authenticate
+ntp authentication-key 42 md5 1108350C14172202332525202D2139231D03 7
+ntp server 2610:20:6F96:96::6
+ip ssh version 2
+ip ssh time-out 60
+username developer privilege 15 secret 5 $1$pdQG$blOvq4Ey0SJCv3n001vnj.

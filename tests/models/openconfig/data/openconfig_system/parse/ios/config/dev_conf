@@ -42,6 +42,10 @@ ntp allow mode control 0
 ntp leap-handle
 ntp mindistance 1
 ntp maxdistance 8
+ntp authenticate
+ntp authentication-key 41 md5 047A070F0C2465403E160B1317190005242F 7
+ntp authentication-key 42 md5 1108350C14172202332525202D2139231D03 7
+ntp trusted-key 42
 ntp server 2610:20:6F96:96::6 maxpoll 10 minpoll 6 version 4 burst iburst
 ntp peer 2610:20:6F15:15::27 maxpoll 10 minpoll 6 version 4 burst iburst
 ntp peer 129.6.15.28 maxpoll 10 minpoll 6 version 4 burst iburst
