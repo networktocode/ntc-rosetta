@@ -53,6 +53,9 @@ class DnsServer(Parser):
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
             dns = jh.query('ip."name-server"."#text"', self.native) or ""
+            # str.split will fire once on an empty string
+            if not dns:
+                raise StopIteration
             for ns in dns.split(" "):
                 yield ns, {}
 
@@ -125,8 +128,53 @@ class NtpServers(Parser):
         path = "/openconfig-system:system/ntp/servers"
 
 
+class NtpKeyConfig(Parser):
+    class Yangify(ParserData):
+        path = "/openconfig-system:system/ntp/ntp-keys/ntp-key/config"
+
+    def key_id(self) -> str:
+        return str(self.yy.key)
+
+    def key_type(self) -> str:
+        # md5 is the only type declared in the model and the only type in the cisco docs
+        # ntc_rosetta/yang/openconfig/release/models/system/openconfig-system.yang#L116
+        return "NTP_AUTH_MD5"
+
+    def key_value(self) -> str:
+        for k, v in self.yy.native.items():
+            if k == "#text":
+                continue
+            # return the whole md5 string
+            return str(v["#text"])
+
+
+class NtpKey(Parser):
+    config = NtpKeyConfig
+
+    class Yangify(ParserData):
+        path = "/openconfig-system:system/ntp/ntp-keys/ntp-key"
+
+        def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
+            ntp_auth = jh.query('ntp."authentication-key"', self.native) or {}
+            for k, v in ntp_auth.items():
+                if k == "#text":
+                    continue
+                yield k, v
+
+    def key_id(self) -> str:
+        return str(self.yy.key)
+
+
+class NtpKeys(Parser):
+    ntp_key = NtpKey
+
+    class Yangify(ParserData):
+        path = "/openconfig-system:system/ntp/ntp-keys"
+
+
 class Ntp(Parser):
     config = NtpConfig
+    ntp_keys = NtpKeys
     servers = NtpServers
 
     class Yangify(ParserData):
@@ -299,13 +347,6 @@ class ClockConfig(Parser):
         v = jh.query('clock.timezone."#text"', self.yy.native)
         if v:
             return str(v)
-
-
-class Clock(Parser):
-    class Yangify(ParserData):
-        path = "/openconfig-system:system/clock"
-
-    config = ClockConfig
 
 
 class System(Parser):

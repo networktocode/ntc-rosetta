@@ -70,7 +70,7 @@ class NtpServer(Translator):
                 for element in self.to_remove:
                     self.result.add_command(f"no ntp server {element['address']}")
 
-    def address(self, value: str):
+    def address(self, value: str) -> None:
         self.yy.result.add_command(f"ntp server {value}")
 
 
@@ -85,6 +85,55 @@ class NtpConfig(Translator):
     class Yangify(TranslatorData):
         path = "/openconfig-system:system/ntp/config"
 
+    def enable_ntp_auth(self, value: bool) -> None:
+        if value:
+            self.yy.result.add_command("ntp authenticate")
+
+
+class NtpKeyConfig(Translator):
+    class Yangify(TranslatorData):
+        path = "/openconfig-system:system/ntp/ntp-keys/ntp-key/config"
+
+        def pre_process(self) -> None:
+            self.extra = {"key-id": "", "key-type": "", "key-value": ""}
+
+        def post_process(self) -> None:
+            self.result.add_command(
+                f"ntp authentication-key {self.extra['key-id']} "
+                f"{self.extra['key-type']} {self.extra['key-value']}"
+            )
+
+    def key_id(self, value: str) -> None:
+        self.yy.extra["key-id"] = value
+
+    def key_type(self, value: str) -> None:
+        # md5 is our only choice for now
+        self.yy.extra["key-type"] = "md5"
+
+    def key_value(self, value: str) -> None:
+        self.yy.extra["key-value"] = value
+
+
+class NtpKey(Translator):
+    class Yangify(TranslatorData):
+        path = "/openconfig-system:system/ntp/ntp-keys/ntp-key"
+
+        def pre_process_list(self) -> None:
+            if self.to_remove:
+                for element in self.to_remove:
+                    self.result.add_command(
+                        f"no ntp authentication-key {element['key-id']}"
+                    )
+
+    config = NtpKeyConfig
+
+
+class NtpKeys(Translator):
+    class Yangify(TranslatorData):
+        path = "/openconfig-system:system/ntp/ntp-keys"
+
+    ntp_key = NtpKey
+
 
 class Ntp(Translator):
     class Yangify(TranslatorData):
@@ -92,6 +141,7 @@ class Ntp(Translator):
 
     config = NtpConfig
     servers = NtpServers
+    ntp_keys = NtpKeys
 
 
 class SshServerConfig(Translator):
@@ -162,7 +212,6 @@ class AaaAuthenticationUserConfig(Translator):
             #         exit
             #       exit
             #     """
-            #     raise NotImplementedError
 
     def username(self, value: str) -> None:
         self.yy.extra["username"] = value
@@ -227,7 +276,6 @@ class ClockConfig(Translator):
 
     def timezone_name(self, value: str) -> None:
         self.yy.result.add_command(f"clock timezone {value}")
-
 
 
 class Clock(Translator):
