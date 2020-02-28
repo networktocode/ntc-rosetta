@@ -93,7 +93,7 @@ class Interface(Parser):
         path = "/openconfig-interfaces:interfaces/interface"
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
-            for k, v in self.native["interface"].items():
+            for k, v in jh.query("interface", self.native, default={}).items():
                 if k == "#text" or "." in k:
                     continue
                 yield k, v

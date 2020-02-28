@@ -1,0 +1,105 @@
+{
+    "openconfig-system:system": {
+      "config": {
+        "hostname": "csr1000v-1"
+      },
+      "clock": {
+        "config": {
+          "timezone-name": "CST -6 0"
+        }
+      },
+      "dns": {
+        "servers": {
+          "server": [
+            {
+              "address": "8.8.8.8",
+              "config": {
+                "address": "8.8.8.8",
+                "port": 53
+              }
+            },
+            {
+              "address": "8.8.4.4",
+              "config": {
+                "address": "8.8.4.4",
+                "port": 53
+              }
+            }
+          ]
+        }
+      },
+      "ntp": {
+        "config": {
+          "enabled": true,
+          "enable-ntp-auth": false
+        },
+        "servers": {
+          "server": [
+            {
+              "address": "2610:20:6F96:96::6",
+              "config": {
+                "address": "2610:20:6F96:96::6"
+              }
+            },
+            {
+              "address": "129.6.15.29",
+              "config": {
+                "address": "129.6.15.29"
+              }
+            }
+          ]
+        }
+      },
+      "ssh-server": {
+        "config": {
+          "enable": true,
+          "protocol-version": "V2",
+          "timeout": 60
+        }
+      },
+      "telnet-server": {
+        "config": {
+          "enable": true
+        }
+      },
+      "aaa": {
+        "authentication": {
+          "users": {
+            "user": [
+              {
+                "username": "developer",
+                "config": {
+                  "username": "developer",
+                  "password-hashed": "$1$pdQG$blOvq4Ey0SJCv3n001vnj.",
+                  "role": "15"
+                }
+              },
+              {
+                "username": "cisco",
+                "config": {
+                  "username": "cisco",
+                  "password-hashed": "$8$FiJQlYEnyjCvkk$GkMYqqmLNP2YNoAFBcod4Tg7/Sy6e58Q3a8umokmlJI",
+                  "role": "15"
+                }
+              },
+              {
+                "username": "root",
+                "config": {
+                  "username": "root",
+                  "password-hashed": "$9$FfUDIPBFcs03AE$MyLIWEuiRle8p3yGflAGTcrJA6BUUh/oWtyyfoMQXSI",
+                  "role": "15"
+                }
+              },
+              {
+                "username": "newuser80",
+                "config": {
+                  "username": "newuser80",
+                  "password": "Yu76_87AF"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }

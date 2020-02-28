@@ -1,0 +1,19 @@
+{
+    "openconfig-system:system": {
+      "aaa": {
+        "authentication": {
+          "users": {
+            "user": [
+              {
+                "username": "newuser80",
+                "config": {
+                  "username": "newuser80",
+                  "password": "Yu76_87AF"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }

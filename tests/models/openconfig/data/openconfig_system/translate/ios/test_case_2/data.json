@@ -1,0 +1,69 @@
+{
+    "openconfig-system:system": {
+      "config": {
+        "hostname": "csr1000v-1"
+      },
+      "clock": {
+        "config": {
+          "timezone-name": "CST -6 0"
+        }
+      },
+      "dns": {
+        "servers": {
+          "server": [
+            {
+              "address": "8.8.8.8",
+              "config": {
+                "address": "8.8.8.8",
+                "port": 53
+              }
+            }
+          ]
+        }
+      },
+      "ntp": {
+        "config": {
+          "enabled": true,
+          "enable-ntp-auth": false
+        },
+        "servers": {
+          "server": [
+            {
+              "address": "2610:20:6F96:96::6",
+              "config": {
+                "address": "2610:20:6F96:96::6"
+              }
+            }
+          ]
+        }
+      },
+      "ssh-server": {
+        "config": {
+          "enable": true,
+          "protocol-version": "V2",
+          "timeout": 60
+        }
+      },
+      "telnet-server": {
+        "config": {
+          "enable": true
+        }
+      },
+      "aaa": {
+        "authentication": {
+          "users": {
+            "user": [
+              {
+                "username": "developer",
+                "config": {
+                  "username": "developer",
+                  "password-hashed": "$1$pdQG$blOvq4Ey0SJCv3n001vnj.",
+                  "role": "15"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
