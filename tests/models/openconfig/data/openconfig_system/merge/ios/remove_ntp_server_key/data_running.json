@@ -1,0 +1,30 @@
+{
+  "openconfig-system:system": {
+    "ntp": {
+      "config": {
+        "enabled": true,
+        "enable-ntp-auth": false
+      },
+      "ntp-keys": {
+        "ntp-key": [
+            {
+              "key-id": 41,
+              "config": {
+                "key-id": 41,
+                "key-type": "openconfig-system:NTP_AUTH_MD5",
+                "key-value": "047A070F0C2465403E160B1317190005242F 7"
+              }
+            },
+          {
+            "key-id": 42,
+            "config": {
+              "key-id": 42,
+              "key-type": "openconfig-system:NTP_AUTH_MD5",
+              "key-value": "1108350C14172202332525202D2139231D03 7"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
