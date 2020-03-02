@@ -9,7 +9,7 @@ from ntc_rosetta.yang import get_data_model
     "--model",
     default="openconfig",
     type=click.Choice(["openconfig", "ntc"]),
-    help="model to lint",
+    help="model to lint - default: openconfig",
 )
 @click.pass_context
 def print_model(ctx: click.Context, model: str) -> None:
