@@ -1,0 +1,4 @@
+delete system ntp server '2610:20:6F96:96::6'
+set system ntp server '2610:20:6F96:96::6'
+delete system ntp server '129.6.15.29'
+set system ntp server '129.6.15.29'

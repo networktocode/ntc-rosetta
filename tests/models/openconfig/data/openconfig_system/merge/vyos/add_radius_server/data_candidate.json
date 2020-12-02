@@ -1,0 +1,43 @@
+{
+  "openconfig-system:system": {
+    "aaa": {
+      "server-groups": {
+        "server-group": [
+          {
+            "name": "radius",
+            "config": {
+              "name": "radius",
+              "type": "openconfig-aaa:RADIUS"
+            },
+            "servers": {
+              "server": [
+                {
+                  "address": "192.168.0.42",
+                  "config": {
+                    "address": "192.168.0.42"
+                  },
+                  "radius": {
+                    "config": {
+                      "secret-key": "PLAINTEXTPASS"
+                    }
+                  }
+                },
+                {
+                  "address": "192.168.0.43",
+                  "config": {
+                    "address": "192.168.0.43"
+                  },
+                  "radius": {
+                    "config": {
+                      "secret-key": "PLAINTEXTPASS"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+service {
+    ssh
+}
+system {
+    domain-name vyos.io
+    domain-search {
+        domain vyos.io
+        domain domain.com
+        ]
+    }
+    host-name vyos
+    login {
+        banner {
+            post-login "This is the post-login banner"
+            pre-login "This is the pre-login banner"
+        }
+        radius {
+            server 192.168.0.1 {
+                key "shared-key"
+                port 2012
+            }
+            source-address 192.168.0.100
+        }
+        user vyos {
+            authentication {
+                encrypted-password "$6$UfxCExXB$lyKzl4SD0TM2Ygu9bIfG.BTmwQ9S1fCahnAW8DJSizcuDuDnfL0XGMlxRtrtiIt0pxaoPaJCPpEI1MegscoZ3/"
+                plaintext-password ""
+                public-keys user1 {
+                    key "AAAAB3NzaC1yc2EAAAADAQABAAABgQDPlV5uLCkrBdNNrPcoWh2RcQYuUMk8HaC4hw7SaF7h/34WBEFF4YL4C3tn5PAvVtYeBjELWxC/2Vb+OPAQQWtNH38vwjg2BBZOV8UtYrLZZIPuz1olzGNdhBCgwZbQgjNLxoOuhZLKR5TqKQ0uGdIIL57cWnVXuQrq7mHAvhqn4lwGiHY3VhJkdBupbSBQWMoGlDm/aQNfKlEVR/ArPZpd7Tyt8PqWcj4WtXHPO4QEqbCa1GxFn8NwMBiPYyeeX0WUMW3no/h43HsM9Lx2PI0dYFBYLHX1GhnIB2BINAMUWcPlM3r6SLFgR1+1NL6e/4V22fxt5uIHm/zcjCixwPYASgyzyG7YDSv891pwNCJXdti2mGekSaGarv0E9DxSyoHoiG//XP9CZfGVzqWlwcvo9/5TD0n632qjBeBSoQrH9YgKOwoiUgyDwUaLa8SxmHmfO+r5BJth6p+kyTOBOfBnSIWjpHk7Fkbl6pmAuVvzNQj6SHpcxdYdo56rjcuhEe0="
+                    type ssh-rsa
+                }
+            }
+        }
+    }
+    name-server 9.9.9.9
+    name-server 9.9.9.11
+    name-server 2620:fe::fe
+    name-server 2620:fe::11
+    ntp {
+        server 0.pool.ntp.org {
+            prefer
+        }
+        server 1.pool.ntp.org {
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    static-host-mapping {
+        host-name domain-v6.com {
+            alias alias6-domain
+            inet 1234:ab:cd:ef::1
+        }
+        host-name domain-v4.com {
+            alias alias4-domain
+            inet 1.2.3.4
+        }
+    }
+    syslog {
+        console {
+            facility auth {
+                level alert
+            }
+            facility user {
+                level info
+            }
+        }
+        host syslog.org {
+            facility all {
+                level emerg
+            }
+            port 614
+        }
+    }
+    time-zone Europe/Copenhagen
+}

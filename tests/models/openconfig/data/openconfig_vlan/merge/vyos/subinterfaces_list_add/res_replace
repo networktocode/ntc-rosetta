@@ -1,0 +1,3 @@
+delete interfaces ethernet 'eth1'
+set interfaces ethernet eth1 vif 1 description 'This is eth1.1'
+set interfaces ethernet eth1 vif-s 2 vif-c 1 description 'This is eth1.2.1'

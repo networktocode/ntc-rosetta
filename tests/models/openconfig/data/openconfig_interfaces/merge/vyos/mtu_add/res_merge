@@ -1,0 +1,1 @@
+set interfaces ethernet eth1 mtu '9000'

@@ -1,0 +1,150 @@
+{
+  "openconfig-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth0",
+        "config": {
+          "name": "eth0",
+          "type": "iana-if-type:ethernetCsmacd",
+          "description": "this is interface eth0",
+          "enabled": false
+        }
+      },
+      {
+        "name": "eth1",
+        "config": {
+          "name": "eth1",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 10,
+              "config": {
+                "enabled": true,
+                "index": 10,
+                "description": "this is interface eth1.10"
+              },
+              "openconfig-vlan:vlan": {
+                "match": {
+                  "single-tagged": {
+                    "config": {
+                      "vlan-id": 10
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "index": 20,
+              "config": {
+                "index": 20,
+                "enabled": true,
+                "description": "this is interface eth1.20"
+              },
+              "openconfig-vlan:vlan": {
+                "match": {
+                  "single-tagged": {
+                    "config": {
+                      "vlan-id": 20
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "eth2",
+        "config": {
+          "name": "eth2",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 100020,
+              "config": {
+                "index": 100020,
+                "enabled": true,
+                "description": "this is interface eth2.10.20"
+              },
+              "openconfig-vlan:vlan": {
+                "match": {
+                  "double-tagged": {
+                    "config": {
+                      "outer-vlan-id": 10,
+                      "inner-vlan-id": 20
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "index": 100030,
+              "config": {
+                "index": 100030,
+                "description": "this is interface eth2.10.30",
+                "enabled": false
+              },
+              "openconfig-vlan:vlan": {
+                "match": {
+                  "double-tagged": {
+                    "config": {
+                      "outer-vlan-id": 10,
+                      "inner-vlan-id": 30
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "index": 1000200,
+              "config": {
+                "index": 1000200,
+                "enabled": true,
+                "description": "this is interface eth2.100.200"
+              },
+              "openconfig-vlan:vlan": {
+                "match": {
+                  "double-tagged": {
+                    "config": {
+                      "outer-vlan-id": 100,
+                      "inner-vlan-id": 200
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "openconfig-network-instance:network-instances": {
+    "network-instance": [
+      {
+        "name": "default",
+        "config": {
+          "name": "default"
+        }
+      },
+      {
+        "name": "vrf-1",
+        "config": {
+          "name": "vrf-1"
+        }
+      },
+      {
+        "name": "vrf-2",
+        "config": {
+          "name": "vrf-2",
+          "description": "this is vrf-2"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "openconfig-system:system": {
+    "aaa": {
+      "authentication": {
+        "users": {
+          "user": [
+            {
+              "username": "other",
+              "config": {
+                "username": "other",
+                "password-hashed": "$6$Ds.gV3Ce$V10YZ/FFypUTCcUtJ8C9WIgnD6wEwsXFivPH2RrVCBs/JzcS7WYgPL.EgVlsFwSVtK1F.HBENK2UbMMj8Dfc4/",
+                "role": "super-user"
+              }
+            },
+            {
+              "username": "user",
+              "config": {
+                "username": "user",
+                "ssh-key": "ssh-rsa some-ssh-key user@example.com",
+                "role": "super-user"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "openconfig-system:system": {
+    "config": {
+      "hostname": "vyos",
+      "domain-name": "vyos.io",
+      "login-banner": "This is the pre-login banner",
+      "motd-banner":"This is the post-login banner"
+    },
+    "clock": {
+      "config": {
+        "timezone-name": "Europe/Copenhagen"
+      }
+    },
+    "dns": {
+      "config": {
+        "search": [
+          "vyos.io",
+          "domain.com"
+        ]
+      },
+      "servers": {
+        "server": [
+          {
+            "address": "9.9.9.9",
+            "config": {
+              "address": "9.9.9.9",
+              "port": 53
+            }
+          },
+          {
+            "address": "9.9.9.11",
+            "config": {
+              "address": "9.9.9.11",
+              "port": 53
+            }
+          },
+          {
+            "address": "2620:fe::fe",
+            "config": {
+              "address": "2620:fe::fe",
+              "port": 53
+            }
+          },
+          {
+            "address": "2620:fe::11",
+            "config": {
+              "address": "2620:fe::11",
+              "port": 53
+            }
+          }
+        ]
+      },
+      "host-entries": {
+        "host-entry": [
+          {
+            "hostname": "domain-v6.com",
+            "config": {
+              "hostname": "domain-v6.com",
+              "alias": [
+                "alias6-domain"
+              ],
+              "ipv6-address": [
+                "1234:ab:cd:ef::1"
+              ]
+            }
+          },
+          {
+            "hostname": "domain-v4.com",
+            "config": {
+              "hostname": "domain-v4.com",
+              "alias": [
+                "alias4-domain"
+              ],
+              "ipv4-address": [
+                "1.2.3.4"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "ntp": {
+      "config": {
+        "enabled": true
+      },
+      "servers": {
+        "server": [
+          {
+            "address": "0.pool.ntp.org",
+            "config": {
+              "address": "0.pool.ntp.org",
+              "prefer": true
+            }
+          },
+          {
+            "address": "1.pool.ntp.org",
+            "config": {
+              "address": "1.pool.ntp.org",
+              "prefer": false
+            }
+          },
+          {
+            "address": "2.pool.ntp.org",
+            "config": {
+              "address": "2.pool.ntp.org",
+              "prefer": false
+            }
+          }
+        ]
+      }
+    },
+    "ssh-server": {
+      "config": {
+        "enable": true
+      }
+    },
+    "logging": {
+      "console": {
+        "selectors": {
+          "selector": [
+            {
+              "facility": "openconfig-system:AUTH",
+              "severity": "ALERT",
+              "config": {
+                "facility": "openconfig-system:AUTH",
+                "severity": "ALERT"
+              }
+            },
+            {
+              "facility": "openconfig-system:USER",
+              "severity": "INFORMATIONAL",
+              "config": {
+                "facility": "openconfig-system:USER",
+                "severity": "INFORMATIONAL"
+              }
+            }
+          ]
+        }
+      },
+      "remote-servers": {
+        "remote-server": [
+          {
+            "host": "syslog.org",
+            "config": {
+              "host": "syslog.org",
+              "remote-port": 614
+            },
+            "selectors": {
+              "selector": [
+                {
+                  "facility": "openconfig-system:ALL",
+                  "severity": "EMERGENCY",
+                  "config": {
+                    "facility": "openconfig-system:ALL",
+                    "severity": "EMERGENCY"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "aaa": {
+      "authentication": {
+        "config": {
+          "authentication-method": [
+            "openconfig-aaa:RADIUS_ALL",
+            "openconfig-aaa:LOCAL"
+          ]
+        },
+        "users": {
+          "user": [
+            {
+              "username": "vyos",
+              "config": {
+                "username": "vyos",
+                "password": "",
+                "password-hashed": "$6$UfxCExXB$lyKzl4SD0TM2Ygu9bIfG.BTmwQ9S1fCahnAW8DJSizcuDuDnfL0XGMlxRtrtiIt0pxaoPaJCPpEI1MegscoZ3/",
+                "ssh-key": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDPlV5uLCkrBdNNrPcoWh2RcQYuUMk8HaC4hw7SaF7h/34WBEFF4YL4C3tn5PAvVtYeBjELWxC/2Vb+OPAQQWtNH38vwjg2BBZOV8UtYrLZZIPuz1olzGNdhBCgwZbQgjNLxoOuhZLKR5TqKQ0uGdIIL57cWnVXuQrq7mHAvhqn4lwGiHY3VhJkdBupbSBQWMoGlDm/aQNfKlEVR/ArPZpd7Tyt8PqWcj4WtXHPO4QEqbCa1GxFn8NwMBiPYyeeX0WUMW3no/h43HsM9Lx2PI0dYFBYLHX1GhnIB2BINAMUWcPlM3r6SLFgR1+1NL6e/4V22fxt5uIHm/zcjCixwPYASgyzyG7YDSv891pwNCJXdti2mGekSaGarv0E9DxSyoHoiG//XP9CZfGVzqWlwcvo9/5TD0n632qjBeBSoQrH9YgKOwoiUgyDwUaLa8SxmHmfO+r5BJth6p+kyTOBOfBnSIWjpHk7Fkbl6pmAuVvzNQj6SHpcxdYdo56rjcuhEe0=",
+                "role": "openconfig-aaa:SYSTEM_ROLE_ADMIN"
+              }
+            }
+          ]
+        }
+      },
+      "authorization": {
+        "config": {
+          "authorization-method": [
+            "openconfig-aaa:RADIUS_ALL",
+            "openconfig-aaa:LOCAL"
+          ]
+        }
+      },
+      "server-groups": {
+        "server-group": [
+          {
+            "name": "radius",
+            "config": {
+              "name": "radius",
+              "type": "openconfig-aaa:RADIUS"
+            },
+            "servers": {
+              "server": [
+                {
+                  "address": "192.168.0.1",
+                  "config": {
+                    "address": "192.168.0.1"
+                  },
+                  "radius": {
+                    "config": {
+                      "auth-port": 2012,
+                      "secret-key": "shared-key",
+                      "source-address": "192.168.0.100"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

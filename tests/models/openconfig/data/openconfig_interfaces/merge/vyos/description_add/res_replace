@@ -1,0 +1,2 @@
+delete interfaces ethernet 'eth1'
+set interfaces ethernet eth1 description 'this is interface eth1'

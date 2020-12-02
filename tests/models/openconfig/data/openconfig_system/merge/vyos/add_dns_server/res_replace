@@ -1,0 +1,4 @@
+delete system name-server '8.8.8.8'
+set system name-server '8.8.8.8'
+delete system name-server '8.8.4.4'
+set system name-server '8.8.4.4'
