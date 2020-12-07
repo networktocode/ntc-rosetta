@@ -322,7 +322,7 @@ class DnsConfig(Parser):
 
 class HostEntryConfig(Parser):
     class Yangify(ParserData):
-        path = "/openconfig-system:/system/dns/host-entries/host-entry/config"
+        path = "/openconfig-system:system/dns/host-entries/host-entry/config"
 
     def hostname(self) -> str:
         return self.yy.key
@@ -349,7 +349,7 @@ class HostEntryConfig(Parser):
 
 class HostEntry(Parser):
     class Yangify(ParserData):
-        path = "/openconfig-system:/system/dns/host-entries/host-entry"
+        path = "/openconfig-system:system/dns/host-entries/host-entry"
 
         def extract_elements(self) -> Iterator[Tuple[str, Dict[str, Any]]]:
             static_host_mapping = self.native.get("static-host-mapping")
@@ -365,7 +365,7 @@ class HostEntry(Parser):
 
 class HostEntries(Parser):
     class Yangify(ParserData):
-        path = "/openconfig-system:/system/dns/host-entries"
+        path = "/openconfig-system:system/dns/host-entries"
 
     host_entry = HostEntry
 

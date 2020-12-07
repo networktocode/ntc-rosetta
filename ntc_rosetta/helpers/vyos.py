@@ -50,7 +50,9 @@ def parse_config_tree(config: List[str]) -> Dict[str, Any]:
         nodes = line.lstrip().split()
         if nodes[-1] == "{":
             if len(nodes) > 2:
-                parsed.setdefault(nodes[0], {}).update({nodes[1]: parse_config_tree(config)})
+                parsed.setdefault(nodes[0], {}).update(
+                    {nodes[1]: parse_config_tree(config)}
+                )
             else:
                 parsed[nodes[0]] = parse_config_tree(config)
         elif nodes[-1] == "}":
@@ -59,9 +61,9 @@ def parse_config_tree(config: List[str]) -> Dict[str, Any]:
             if len(nodes) == 1:
                 parsed[nodes[0]] = ""
             else:
-                if nodes[1].startswith("\""):
-                    nodes[1] = nodes[1].lstrip("\"")
-                    nodes[-1] = nodes[-1].rstrip("\"")
+                if nodes[1].startswith('"'):
+                    nodes[1] = nodes[1].lstrip('"')
+                    nodes[-1] = nodes[-1].rstrip('"')
                     value = " ".join(nodes[1:])
                 else:
                     value = str(nodes[1])

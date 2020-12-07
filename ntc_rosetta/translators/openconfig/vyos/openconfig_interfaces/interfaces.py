@@ -94,7 +94,7 @@ class Subinterface(Translator):
                         raise Exception(
                             f"don't know the vlan tag(s) for subinterface {self.key}"
                         )
-                    #     TODO: should check if this is the last inner vlan for outer vlan and delete outer if true
+                    # TODO: check if this is the last inner vlan for outer vlan and delete outer if true
 
         def pre_process(self) -> None:
             data = self.candidate.goto(self.path).value

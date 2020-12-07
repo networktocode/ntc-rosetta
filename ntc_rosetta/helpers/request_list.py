@@ -22,7 +22,9 @@ class RequestList:
         return json.dumps(self.requests, indent=2)
 
     def to_set(self) -> str:
-        result = ''
+        result = ""
         for request in self.requests:
-            result += f'{request["op"]} {" ".join(request["path"])} \'{request["value"]}\'\n'
+            result += (
+                f'{request["op"]} {" ".join(request["path"])} \'{request["value"]}\'\n'
+            )
         return result

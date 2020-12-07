@@ -298,7 +298,7 @@ class Ntp(Translator):
 
 class HostEntryConfig(Translator):
     class Yangify(TranslatorData):
-        path = "/openconfig-system:/system/dns/host-entries/host-entry/config"
+        path = "/openconfig-system:system/dns/host-entries/host-entry/config"
 
     hostname = unneeded
 
@@ -317,7 +317,7 @@ class HostEntryConfig(Translator):
 
 class HostEntry(Translator):
     class Yangify(TranslatorData):
-        path = "/openconfig-system:/system/dns/host-entries/host-entry"
+        path = "/openconfig-system:system/dns/host-entries/host-entry"
 
         def pre_process_list(self) -> None:
             if self.to_remove and not self.replace:
@@ -341,7 +341,7 @@ class HostEntry(Translator):
 
 class HostEntries(Translator):
     class Yangify(TranslatorData):
-        path = "/openconfig-system:/system/dns/host-entries"
+        path = "/openconfig-system:system/dns/host-entries"
 
     host_entry = HostEntry
 
