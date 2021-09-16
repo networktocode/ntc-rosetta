@@ -96,7 +96,7 @@ lint:
 .PHONY: publish
 publish:
 	${DOCKER} \
-		poetry publish --build --username=$(PYPI_USER) --password="$(PYPI_PASSWORD)"
+		poetry publish --build --username=__token__ --password="$(PYPI_TOKEN)"
 
 .PHONY: vendor
 vendor:
