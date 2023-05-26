@@ -11,7 +11,7 @@ repository = "https://github.com/networktocode/ntc-rosetta"
 ntc_rosetta = 'ntc_rosetta.cli:run'
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 jmespath = "^0.9.3"
 lxml = "^4.3"
 click = "^7.0"
