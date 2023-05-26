@@ -11,7 +11,7 @@ repository = "https://github.com/networktocode/ntc-rosetta"
 ntc_rosetta = 'ntc_rosetta.cli:run'
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 jmespath = "^0.9.3"
 lxml = "^4.3"
 click = "^7.0"
@@ -22,7 +22,7 @@ pytest = "^4.2"
 black = { version = "19.3b0", allow-prereleases = true }
 pylama = "^7.6"
 flake8-import-order = "^0.18.0"
-mypy = "^0.701.0"
+mypy = "^1.0.0"
 pytest-pythonpath = "^0.7.3"
 pytest-cov = "^2.6"
 jupyter = "^1.0"
