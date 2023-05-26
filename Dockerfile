@@ -1,6 +1,6 @@
 ARG PYTHON
 
-FROM python:${PYTHON}-stretch
+FROM python:${PYTHON}-slim
 
 RUN apt-get update && apt-get install -y pandoc
 
