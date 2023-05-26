@@ -24,8 +24,8 @@ build_test_container:
 
 .PHONY: build_test_containers
 build_test_containers:
-	make build_test_container PYTHON=3.6
-	make build_test_container PYTHON=3.7
+	make build_test_container PYTHON=3.8
+	make build_test_container PYTHON=3.9
 
 .PHONY: enter-container
 enter-container:
@@ -83,8 +83,8 @@ jupyter:
 
 .PHONY: tests
 tests: build_test_containers black sphinx-test pylama mypy nbval lint
-	make pytest PYTHON=3.6
-	make pytest PYTHON=3.7
+	make pytest PYTHON=3.8
+	make pytest PYTHON=3.9
 
 .PHONY: lint
 lint:
