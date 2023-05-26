@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "ntc_rosetta"
-version = "0.2.0"
+version = "0.2.2"
 description = "The missing bridge between industry standard CLIs and YANG"
-authors = ["David Barroso <dbarrosop@dravetech.com>"]
+authors = ["Network to Code, LLC <opensource@networktocode.com>"]
 license = "Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/networktocode/ntc-rosetta"
