@@ -13,13 +13,13 @@ class VlanConfig(Translator):
         if value:
             self.yy.result.add_command(f"   name {value}")
         else:
-            self.yy.result.add_command(f"   no name")
+            self.yy.result.add_command("   no name")
 
     def status(self, value: Optional[str]) -> None:
         if value == "SUSPENDED":
-            self.yy.result.add_command(f"   shutdown")
+            self.yy.result.add_command("   shutdown")
         else:
-            self.yy.result.add_command(f"   no shutdown")
+            self.yy.result.add_command("   no shutdown")
 
 
 class Vlan(Translator):

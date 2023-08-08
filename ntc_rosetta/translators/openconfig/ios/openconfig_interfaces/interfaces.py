@@ -17,13 +17,13 @@ class SubinterfaceConfig(Translator):
         if value:
             self.yy.result.add_command(f"   description {value}")
         else:
-            self.yy.result.add_command(f"   no description")
+            self.yy.result.add_command("   no description")
 
     def enabled(self, value: Optional[bool]) -> None:
         if value:
-            self.yy.result.add_command(f"   no shutdown")
+            self.yy.result.add_command("   no shutdown")
         else:
-            self.yy.result.add_command(f"   shutdown")
+            self.yy.result.add_command("   shutdown")
 
 
 class Subinterface(Translator):
@@ -75,27 +75,27 @@ class InterfaceConfig(Translator):
         if value:
             self.yy.result.add_command(f"   description {value}")
         else:
-            self.yy.result.add_command(f"   no description")
+            self.yy.result.add_command("   no description")
 
     def enabled(self, value: Optional[bool]) -> None:
         if value:
-            self.yy.result.add_command(f"   no shutdown")
+            self.yy.result.add_command("   no shutdown")
         else:
-            self.yy.result.add_command(f"   shutdown")
+            self.yy.result.add_command("   shutdown")
 
     def mtu(self, value: Optional[int]) -> None:
         if value:
             self.yy.result.add_command(f"   mtu {value}")
         else:
-            self.yy.result.add_command(f"   no mtu")
+            self.yy.result.add_command("   no mtu")
 
     def loopback_mode(self, value: Optional[bool]) -> None:
         """set the loopback mode if the interface isn't a loopback"""
         is_loop = re.match("loopback", self.yy.key, re.IGNORECASE)
         if value and not is_loop:
-            self.yy.result.add_command(f"   loopback mac")
+            self.yy.result.add_command("   loopback mac")
         elif not is_loop:
-            self.yy.result.add_command(f"   no loopback mac")
+            self.yy.result.add_command("   no loopback mac")
 
 
 class Interface(Translator):
