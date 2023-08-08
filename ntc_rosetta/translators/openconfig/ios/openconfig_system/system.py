@@ -150,11 +150,11 @@ class SshServerConfig(Translator):
 
     def protocol_version(self, value: str) -> None:
         if value == "V2":
-            self.yy.result.add_command(f"ip ssh version 2")
+            self.yy.result.add_command("ip ssh version 2")
         elif value == "V1":
-            self.yy.result.add_command(f"ip ssh version 1")
+            self.yy.result.add_command("ip ssh version 1")
         else:
-            self.yy.result.add_command(f"default ip ssh version")
+            self.yy.result.add_command("default ip ssh version")
 
     def timeout(self, value: int) -> None:
         if value:

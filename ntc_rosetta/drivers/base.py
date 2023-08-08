@@ -46,9 +46,9 @@ class Driver:
     classes inheriting from this class.
 
     Attributes:
-        parser: Class attribute to defines which ``yangify.parser.RootParser`` to use
+        parser ::noindexentry:: Class attribute to defines which ``yangify.parser.RootParser`` to use
             when parsing native data
-        translator: Class attribute to defines which ``yangify.translator.RootParser`` to use
+        translator ::noindexentry:: Class attribute to defines which ``yangify.translator.RootParser`` to use
             when translating YANG models to native data
         datamodel: Class attribute that defines which ``yangson.datamodel.DataModel`` the
             parser and translator can operate on.

@@ -29,13 +29,13 @@ class VlanConfigVlans(Translator):
         if value:
             self.yy.result.add_command(f"   name {value}")
         else:
-            self.yy.result.add_command(f"   no name")
+            self.yy.result.add_command("   no name")
 
     def active(self, value: Optional[str]) -> None:
         if value:
-            self.yy.result.add_command(f"   no shutdown")
+            self.yy.result.add_command("   no shutdown")
         else:
-            self.yy.result.add_command(f"   shutdown")
+            self.yy.result.add_command("   shutdown")
 
 
 class VlanConfig(Translator):
