@@ -1,9 +1,9 @@
 ifeq (${PYTHON}, )
-override PYTHON=3.6
+override PYTHON=3.8
 endif
 
-DOCKER=docker run -it --rm -v ${PWD}:/ntc_rosetta ntc_rosetta-${PYTHON}:latest
-JUPYTER=docker run -it --rm -p 8888:8888 -v ${PWD}:/ntc_rosetta ntc_rosetta-${PYTHON}:latest
+DOCKER=docker run -it -t --rm -v ${PWD}:/ntc_rosetta ntc_rosetta-${PYTHON}:latest
+JUPYTER=docker run -it -t --rm -p 8888:8888 -v ${PWD}:/ntc_rosetta ntc_rosetta-${PYTHON}:latest
 
 YANG_VENDORED_BASE_PATH=ntc_rosetta/yang
 
