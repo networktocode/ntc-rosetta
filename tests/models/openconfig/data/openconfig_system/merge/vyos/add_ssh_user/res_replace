@@ -1,0 +1,5 @@
+delete system login user 'other'
+set system login user other authentication encrypted-password '$6$Ds.gV3Ce$V10YZ/FFypUTCcUtJ8C9WIgnD6wEwsXFivPH2RrVCBs/JzcS7WYgPL.EgVlsFwSVtK1F.HBENK2UbMMj8Dfc4/'
+delete system login user 'user'
+set system login user user authentication public-keys user key 'ssh-rsa some-ssh-key user@example.com'
+set system login user user authentication public-keys user type 'ssh-rsa'

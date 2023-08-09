@@ -1,0 +1,1 @@
+delete interfaces ethernet eth1 vif '1'

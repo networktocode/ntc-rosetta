@@ -1,0 +1,14 @@
+{
+  "openconfig-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth1",
+        "config": {
+          "type": "iana-if-type:ethernetCsmacd",
+          "name": "eth1",
+          "mtu": 9000
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+delete system login user 'user'
+set system login user user authentication public-keys user key 'ssh-rsa some-ssh-key user@example.com'
+set system login user user authentication public-keys user type 'ssh-rsa'

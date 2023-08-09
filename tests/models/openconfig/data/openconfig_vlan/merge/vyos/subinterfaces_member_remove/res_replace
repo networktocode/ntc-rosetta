@@ -1,0 +1,2 @@
+delete interfaces ethernet 'eth1'
+set interfaces ethernet eth1 vif 2 description 'This is eth1.2'

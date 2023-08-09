@@ -1,0 +1,39 @@
+interfaces {
+    ethernet eth0 {
+        description "this is interface eth0"
+        disable
+    }
+    ethernet eth1 {
+        vif 10 {
+            description "this is interface eth1.10"
+        }
+        vif 20 {
+            description "this is interface eth1.20"
+        }
+    }
+    ethernet eth2 {
+        vif-s 10 {
+            vif-c 20 {
+                description "this is interface eth2.10.20"
+            }
+            vif-c 30 {
+                description "this is interface eth2.10.30"
+                disable
+            }
+        }
+        vif-s 100 {
+            vif-c 200 {
+                description "this is interface eth2.100.200"
+            }
+        }
+    }
+    loopback lo {
+    }
+    bonding bond1 {
+        description "this is interface bond1"
+        mtu 9100
+    }
+    bridge br1 {
+        description "this is interface br1"
+    }
+}

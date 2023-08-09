@@ -1,0 +1,50 @@
+{
+  "openconfig-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth1",
+        "config": {
+          "type": "iana-if-type:ethernetCsmacd",
+          "name": "eth1"
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 1,
+              "config": {
+                "index": 1,
+                "description": "This is eth1.1"
+              },
+              "openconfig-vlan:vlan": {
+                "match": {
+                  "single-tagged": {
+                    "config": {
+                      "vlan-id": 1
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "index": 20001,
+              "config": {
+                "index": 20001,
+                "description": "This is eth1.2.1"
+              },
+              "openconfig-vlan:vlan": {
+                "match": {
+                  "double-tagged": {
+                    "config": {
+                      "outer-vlan-id": 2,
+                      "inner-vlan-id": 1
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

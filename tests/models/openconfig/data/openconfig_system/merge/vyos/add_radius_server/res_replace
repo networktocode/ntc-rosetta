@@ -1,0 +1,4 @@
+delete system login radius server '192.168.0.42'
+set system login radius server 192.168.0.42 key 'PLAINTEXTPASS'
+delete system login radius server '192.168.0.43'
+set system login radius server 192.168.0.43 key 'PLAINTEXTPASS'

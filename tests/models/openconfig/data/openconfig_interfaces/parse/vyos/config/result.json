@@ -1,0 +1,106 @@
+{
+  "openconfig-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "eth0",
+        "config": {
+          "name": "eth0",
+          "type": "iana-if-type:ethernetCsmacd",
+          "description": "this is interface eth0",
+          "enabled": false
+        }
+      },
+      {
+        "name": "eth1",
+        "config": {
+          "name": "eth1",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 10,
+              "config": {
+                "enabled": true,
+                "index": 10,
+                "description": "this is interface eth1.10"
+              }
+            },
+            {
+              "index": 20,
+              "config": {
+                "index": 20,
+                "enabled": true,
+                "description": "this is interface eth1.20"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "eth2",
+        "config": {
+          "name": "eth2",
+          "type": "iana-if-type:ethernetCsmacd",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 100020,
+              "config": {
+                "index": 100020,
+                "enabled": true,
+                "description": "this is interface eth2.10.20"
+              }
+            },
+            {
+              "index": 100030,
+              "config": {
+                "index": 100030,
+                "description": "this is interface eth2.10.30",
+                "enabled": false
+              }
+            },
+            {
+              "index": 1000200,
+              "config": {
+                "index": 1000200,
+                "enabled": true,
+                "description": "this is interface eth2.100.200"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "lo",
+        "config": {
+          "name": "lo",
+          "type": "iana-if-type:softwareLoopback",
+          "enabled": true
+        }
+      },
+      {
+        "name": "bond1",
+        "config": {
+          "name": "bond1",
+          "type": "iana-if-type:ieee8023adLag",
+          "description": "this is interface bond1",
+          "mtu": 9100,
+          "enabled": true
+        }
+      },
+      {
+        "name": "br1",
+        "config": {
+          "name": "br1",
+          "type": "iana-if-type:bridge",
+          "description": "this is interface br1",
+          "enabled": true
+        }
+      }
+    ]
+  }
+}

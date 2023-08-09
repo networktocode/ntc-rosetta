@@ -1,0 +1,2 @@
+delete interfaces ethernet eth1 vif '1'
+delete interfaces ethernet eth1 vif-s 2 vif-c '1'

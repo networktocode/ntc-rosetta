@@ -1,0 +1,26 @@
+{
+  "openconfig-system:system": {
+    "ntp": {
+      "config": {
+        "enabled": true,
+        "enable-ntp-auth": false
+      },
+      "servers": {
+        "server": [
+          {
+            "address": "2610:20:6F96:96::6",
+            "config": {
+              "address": "2610:20:6F96:96::6"
+            }
+          },
+          {
+            "address": "129.6.15.29",
+            "config": {
+              "address": "129.6.15.29"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
